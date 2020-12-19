@@ -12,6 +12,7 @@ sap.ui.define([
 			this.getView().setModel(oModel);
 			*/
 			//Json Model on-the-fly
+			/*
 			var oData = {
 				value: ""
 			};
@@ -26,7 +27,13 @@ sap.ui.define([
 				this.getView().byId("BindMode").setText("One-Way");
 			} else {
 				this.getView().byId("BindMode").setText("Two-Way");
-			}
+			} */
+			
+			//XML Model from file
+			var oXMLModel = new sap.ui.model.xml.XMLModel();
+			oXMLModel.loadData("model/week.xml");
+			this.getView().setModel(oXMLModel);
+			
 		},
 		
 		onButtonPressed: function(oEvent) {

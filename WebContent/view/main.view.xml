@@ -13,9 +13,8 @@
 					valueLiveUpdate="true"
 					width="50%"/>
 			
-			<Table items="{/week}">
-				<items>
-				</items>
+			<Table items="{/days}"> <!-- XML Binding, Root <week> is ommitted -->
+			<!--<Table items="{/week}"> JSON Binding  -->
 				<headerToolbar>
 					<Toolbar>
 						<Title text="Kommentar zur Woche" level="H2" />
@@ -28,16 +27,21 @@
 					<Column>
 						<Text text="Kommentar" />
 					</Column>
-					<Column>
+					<!--<Column>
 						<Text text="Bewertung" />
-					</Column>
+					</Column> -->
 				</columns>
 				<items>
 					<ColumnListItem>
 						<cells>
-							<Text text="{we_day}" />
-							<Text text="{we_comment}" />
-							<RatingIndicator value="{we_rating}" />
+						<!--XML Binding -->
+							<Text text="{day}" />
+							<Text text="{day/@comment}" />
+						<!-- JSON Binding 
+						<Text text="{we_day}" />
+						<Text text="{we_comment}" />
+						-->
+						<!--	<RatingIndicator value="{we_rating}" /> -->
 						</cells>
 					</ColumnListItem>
 				</items>
