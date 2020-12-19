@@ -6,6 +6,7 @@
 		<content>
 			<Button text="Click Me" press="onButtonPressed" />
 			<Text id="output" />
+			<Text id="BindMode" />
 			<Input 	id="InputField" 
 					value="{/value}"
 					description="{/value}"
