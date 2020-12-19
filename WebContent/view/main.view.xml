@@ -1,0 +1,47 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form" controllerName="controller.main"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title">
+		<content>
+			<Button text="Click Me" press="onButtonPressed" />
+			<Text id="output" />
+			<Input 	id="InputField" 
+					value="{/value}"
+					description="{/value}"
+					valueLiveUpdate="true"
+					width="50%"/>
+			
+			<Table items="{/week}">
+				<items>
+				</items>
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Kommentar zur Woche" level="H2" />
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Tag" />
+					</Column>
+					<Column>
+						<Text text="Kommentar" />
+					</Column>
+					<Column>
+						<Text text="Bewertung" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{we_day}" />
+							<Text text="{we_comment}" />
+							<RatingIndicator value="{we_rating}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</core:View>
+
