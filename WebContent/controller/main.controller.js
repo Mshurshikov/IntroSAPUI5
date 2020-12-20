@@ -34,6 +34,14 @@ sap.ui.define([
 			oXMLModel.loadData("model/week.xml");
 			this.getView().setModel(oXMLModel);
 			
+			//Ressource Model
+			var sLangu = sap.ui.getCore().getConfiguration().getLanguage(); //Login language from URL parameter sap-ui-language
+			var oLangu = new sap.ui.model.resource.ResourceModel({
+				bundleUrl: "i18n/i18n.properties",
+				bundleLocale: sLangu
+			});
+			sap.ui.getCore().setModel(oLangu, "i18n");
+			
 		},
 		
 		onButtonPressed: function(oEvent) {
