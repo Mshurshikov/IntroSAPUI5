@@ -1,7 +1,8 @@
 <core:View xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
 	xmlns:form="sap.ui.layout.form" controllerName="controller.main"
-	xmlns:html="http://www.w3.org/1999/xhtml">
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:com="sap.ui.commons">
 	<Page title="Title">
 		<content>
 			<Button text="Click Me" press="onButtonPressed" />
@@ -70,6 +71,10 @@
 					</ColumnListItem>
 				</items>
 			</Table>
+			
+			<!-- Aggregation Binding - Factory -->
+			<com:Tree id="Tree"> 
+			</com:Tree>
 		</content>
 	</Page>
 </core:View>

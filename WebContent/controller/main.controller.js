@@ -39,6 +39,28 @@ sap.ui.define([
 			});
 			sap.ui.getCore().setModel(oLangu, "i18n");
 			
+			//Aggregation Binding -> Factory function
+			var oWeekMenuModel = new sap.ui.model.json.JSONModel();
+			oWeekMenuModel.loadData("model/weekmenu_tree.json");
+			this.getView().byId("Tree").setModel(oWeekMenuModel);
+			
+			this.getView().byId("Tree").bindAggregation(
+				"nodes",
+				"/weekdays",
+				function(sId, oContext) {
+					var treePath = oContext.getPath(),
+					bindTextName,
+					bindIcon;
+					if (treePath.indexOf("food") !== -1 ) {
+						bindTextName = "detail_description";
+						bindIcon = "detail_icon";
+					} else {
+						bindTextName = "description";
+						bindIcon = "icon";
+					}
+					return new sap.ui.commons.TreeNode(sId).bindProperty( "text", bindTextName).bindProperty( "icon", bindIcon );					
+				}
+			);			
 		},
 		
 		onButtonPressed: function(oEvent) {
