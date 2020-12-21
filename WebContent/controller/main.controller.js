@@ -6,19 +6,16 @@ sap.ui.define([
 	return Controller.extend("controller.main", {
 		onInit: function() {
 			//JSON Model from File
-			/*			
 			var oModel = new sap.ui.model.json.JSONModel();
 			oModel.loadData("model/week.json", null, false); //URL, Parameters, Asynchron
-			this.getView().setModel(oModel);
-			*/
-			//Json Model on-the-fly
-			/*
+			this.getView().byId("JSONTable").setModel(oModel);
+			
+			//JSON Model on-the-fly
 			var oData = {
 				value: ""
 			};
 			
 			var oDataModel = new sap.ui.model.json.JSONModel(oData);
-			
 			oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.OneWay); //Binding Mode One way --> Change will not be saved in the model
 			this.getView().setModel(oDataModel);
 			
@@ -27,12 +24,12 @@ sap.ui.define([
 				this.getView().byId("BindMode").setText("One-Way");
 			} else {
 				this.getView().byId("BindMode").setText("Two-Way");
-			} */
+			}
 			
 			//XML Model from file
 			var oXMLModel = new sap.ui.model.xml.XMLModel();
 			oXMLModel.loadData("model/week.xml");
-			this.getView().setModel(oXMLModel);
+			this.getView().byId("XMLTable").setModel(oXMLModel);
 			
 			//Ressource Model
 			var sLangu = sap.ui.getCore().getConfiguration().getLanguage(); //Login language from URL parameter sap-ui-language

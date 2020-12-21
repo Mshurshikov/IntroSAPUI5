@@ -16,11 +16,12 @@
 			<Text 	text="{i18n>TextCompCode}"
 					class="sapUiSmallMargin" />
 			<Text text="{i18n>TextMasterData}" />
-			<Table items="{/days}"> <!-- XML Binding, Root <week> is ommitted -->
-			<!--<Table items="{/week}"> JSON Binding  -->
+			
+			<!-- XML Binding, Root <week> is ommitted -->
+			<Table id="XMLTable" items="{/days}"> 
 				<headerToolbar>
 					<Toolbar>
-						<Title text="Kommentar zur Woche" level="H2" />
+						<Title text="XML Binding" level="H2" />
 					</Toolbar>
 				</headerToolbar>
 				<columns>
@@ -30,21 +31,41 @@
 					<Column>
 						<Text text="Kommentar" />
 					</Column>
-					<!--<Column>
-						<Text text="Bewertung" />
-					</Column> -->
 				</columns>
 				<items>
 					<ColumnListItem>
 						<cells>
-						<!--XML Binding -->
 							<Text text="{day}" />
 							<Text text="{day/@comment}" />
-						<!-- JSON Binding 
-						<Text text="{we_day}" />
-						<Text text="{we_comment}" />
-						-->
-						<!--	<RatingIndicator value="{we_rating}" /> -->
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			
+			<!-- JSON Binding  -->
+			<Table id="JSONTable" items="{/week}">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="JSON Binding" level="H2"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Tag" />
+					</Column>
+					<Column>
+						<Text text="Kommentar" />
+					</Column>
+					<Column>
+						<Text text="Bewertung" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{we_day}" />
+							<Text text="{we_comment}" />
+							<RatingIndicator value="{we_rating}" />
 						</cells>
 					</ColumnListItem>
 				</items>
