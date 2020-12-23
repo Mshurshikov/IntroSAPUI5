@@ -47,20 +47,26 @@ sap.ui.define([
 			this.getView().byId("Tree").bindAggregation(
 				"nodes",
 				"/weekdays",
-				function(sId, oContext) {
-					var treePath = oContext.getPath(),
-					bindTextName,
-					bindIcon;
-					if (treePath.indexOf("food") !== -1 ) {
-						bindTextName = "detail_description";
-						bindIcon = "detail_icon";
-					} else {
-						bindTextName = "description";
-						bindIcon = "icon";
-					}
-					return new sap.ui.commons.TreeNode(sId).bindProperty( "text", bindTextName).bindProperty( "icon", bindIcon );					
-				}
+				this.weekMenuTreeNodeFactory
 			);			
+		},
+		
+		weekMenuTreeNodeFactory: function(sID, oContext) {
+			var treePath = oContext.getPath();
+			var bindTextName, bindIcon;
+			var newTreeNode = new sap.ui.commons.TreeNode(sId);
+			
+			if (treePath.indexOf("food") !== -1 ) {
+				bindTextName = "detail_description";
+				bindIcon = "detail_icon";
+			} else {
+				bindTextName = "description";
+				bindIcon = "icon";
+			}
+			
+			newTreeNode.bindProperty( "text", bindTextName);
+			newTreeNode.bindProperty( "icon", bindIcon );
+			return newTreeNode;	
 		},
 		
 		onButtonPressed: function(oEvent) {
