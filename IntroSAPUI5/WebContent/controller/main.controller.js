@@ -45,18 +45,21 @@ sap.ui.define([
 			this.getView().byId("Tree").setModel(oWeekMenuModel);
 					
 			this.getView().byId("Tree").bindAggregation(
-				"nodes", 													//sName
+				"items", 													//sName
 				{															//oBindingInfo
 					path: "/weekdays",
-					factory: this.weekMenuTreeNodeFactory
+					factory: this.weekMenuTreeNodeFactory,
+					parameters: {
+						numberOfExpandedLevels: 2
+					}
 				}												
-			);			
+			);
 		},
 		
 		weekMenuTreeNodeFactory: function(sId, oContext) {
 			var treePath = oContext.getPath();
 			var bindTextName, bindIcon;
-			var newTreeNode = new sap.ui.commons.TreeNode(sId);
+			var newTreeNode = new sap.m.StandardTreeItem(sId);
 			
 			if (treePath.indexOf("food") !== -1 ) {
 				bindTextName = "detail_description";
@@ -66,7 +69,7 @@ sap.ui.define([
 				bindIcon = "icon";
 			}
 			
-			newTreeNode.bindProperty( "text", bindTextName);
+			newTreeNode.bindProperty( "title", bindTextName);
 			newTreeNode.bindProperty( "icon", bindIcon );
 			return newTreeNode;	
 		},

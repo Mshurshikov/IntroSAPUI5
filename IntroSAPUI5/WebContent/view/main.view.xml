@@ -73,8 +73,8 @@
 			</Table>
 			
 			<!-- Aggregation Binding - Factory -->
-			<com:Tree id="Tree"> 
-			</com:Tree>
+			<Tree id="Tree" headerText="Aggregation Binding with Factory Function"> 
+			</Tree>
 		</content>
 	</Page>
 </core:View>
