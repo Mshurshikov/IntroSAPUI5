@@ -4,7 +4,6 @@ sap.ui.define([
 ], function (Controller, MessageToast) {
 	"use strict";
 	return Controller.extend("controller.main", {
-		
 		onInit: function() {
 			//JSON Model from File
 			var oModel = new sap.ui.model.json.JSONModel();
@@ -65,8 +64,8 @@ sap.ui.define([
 				bindIcon = "icon";
 			}
 			
-			newTreeNode.bindProperty("text", bindTextName);
-			newTreeNode.bindProperty("icon", bindIcon );
+			newTreeNode.bindProperty( "text", bindTextName);
+			newTreeNode.bindProperty( "icon", bindIcon );
 			return newTreeNode;	
 		},
 		
