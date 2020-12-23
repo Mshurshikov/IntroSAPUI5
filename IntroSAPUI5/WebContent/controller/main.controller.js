@@ -44,10 +44,14 @@ sap.ui.define([
 			oWeekMenuModel.loadData("model/weekmenu_tree.json");
 			this.getView().byId("Tree").setModel(oWeekMenuModel);
 			
+			var oBindingInfo = {
+				path: "/weekdays",
+				factory: this.weekMenuTreeNodeFactory
+			};
+			
 			this.getView().byId("Tree").bindAggregation(
-				"nodes",
-				"/weekdays",
-				this.weekMenuTreeNodeFactory
+				"nodes", 													//sName
+				oBindingInfo												//oBindingInfo
 			);			
 		},
 		
