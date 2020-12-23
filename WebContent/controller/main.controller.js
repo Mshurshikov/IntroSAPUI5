@@ -51,7 +51,7 @@ sap.ui.define([
 			);			
 		},
 		
-		weekMenuTreeNodeFactory: function(sID, oContext) {
+		weekMenuTreeNodeFactory: function(sId, oContext) {
 			var treePath = oContext.getPath();
 			var bindTextName, bindIcon;
 			var newTreeNode = new sap.ui.commons.TreeNode(sId);
