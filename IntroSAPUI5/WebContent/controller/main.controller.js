@@ -40,9 +40,9 @@ sap.ui.define([
 			sap.ui.getCore().setModel(oLangu, "i18n");
 			
 			//Aggregation Binding -> Factory function
-			var oWeekMenuModel = new sap.ui.model.json.JSONModel();
-			oWeekMenuModel.loadData("model/weekmenu_tree.json");
-			this.getView().byId("Tree").setModel(oWeekMenuModel);
+			var oWeekMenuTreeModel = new sap.ui.model.json.JSONModel();
+			oWeekMenuTreeModel.loadData("model/weekmenu_tree.json");
+			this.getView().byId("Tree").setModel(oWeekMenuTreeModel);
 					
 			this.getView().byId("Tree").bindAggregation(
 				"items", 													//sName
@@ -54,6 +54,15 @@ sap.ui.define([
 					}
 				}												
 			);
+			
+			//Element Binding
+			var oWeekMenuModel = new sap.ui.model.json.JSONModel();
+			oWeekMenuModel.loadData("model/weekmenu.json");
+			this.getView().byId("master").setModel(oWeekMenuModel);
+			
+			var oWeekMenuModelSlave = new sap.ui.model.json.JSONModel();
+			oWeekMenuModelSlave.loadData("model/weekmenu.json");
+			this.getView().byId("slave").setModel(oWeekMenuModelSlave);
 		},
 		
 		weekMenuTreeNodeFactory: function(sId, oContext) {
@@ -72,6 +81,12 @@ sap.ui.define([
 			newTreeNode.bindProperty( "title", bindTextName);
 			newTreeNode.bindProperty( "icon", bindIcon );
 			return newTreeNode;	
+		},
+		
+		onSelectWeekDay: function(oEvent) {
+			var oContext = oEvent.getSource().getSelectedItem().getBindingContext();
+			var sBindingPath = oContext.getPath();
+			this.getView().byId("slave").bindElement(sBindingPath);
 		},
 		
 		onButtonPressed: function(oEvent) {

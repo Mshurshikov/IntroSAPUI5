@@ -1,0 +1,94 @@
+{
+	"weekdays": [
+	  {
+	    "day": "Montag",
+	    "no_meals": "2",
+	    "id": "1",
+	    "meals": [
+	    	{
+          "MealNo": "1",
+          "dayId": "1",
+          "items": "Schnitzel mit Pommes"
+	      },
+	      {
+          "MealNo": "2",
+          "dayId": "1",
+          "items": "Pommes mit Schnitzel"
+	      }
+	    ]
+	  },
+	  {
+      "day": "Dienstag",
+      "no_meals": "3",
+      "id": "2",
+      "meals": [
+        {
+          "MealNo": "3",
+          "dayId": "2",
+          "items": "Pommes"
+        },
+        {
+          "MealNo": "4",
+          "dayId": "2",
+          "items": "Schnitzel"
+        },
+        {
+          "MealNo": "5",
+          "dayId": "2",
+          "items": "Schnitzel mit Pommes"
+        }
+ 			]
+	  },
+	  {
+      "day": "Mittwoch",
+      "no_meals": "2",
+      "id": "3",
+      "meals": [
+        {
+          "MealNo": "6",
+          "dayId": "3",
+          "items": "Schnitzel mit Pommes"
+        },
+        {
+          "MealNo": "7",
+          "dayId": "3",
+          "items": "und Schnitzel mit Pommes"
+        }
+    	]
+	  },
+	  {
+      "day": "Donnerstag",
+      "no_meals": "2",
+      "id": "4",
+      "meals": [
+        {
+          "MealNo": "8",
+          "dayId": "4",
+          "items": "Schnitzel"
+        },
+        {
+          "MealNo": "9",
+          "dayId": "4",
+          "items": "Obstsalat"
+        }
+    	]
+	  },
+	  {
+      "day": "Freitag",
+      "no_meals": "2",
+      "id": "5",
+      "meals": [
+        {
+          "MealNo": "10",
+          "dayId": "5",
+          "items": "Gemüseplatte"
+        },
+        {
+          "MealNo": "11",
+          "dayId": "5",
+          "items": "Schnitzel"
+        }
+    	]
+	  }
+	]
+}

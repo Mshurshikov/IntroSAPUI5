@@ -1,25 +1,20 @@
 <core:View xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
 	xmlns:form="sap.ui.layout.form" controllerName="controller.main"
-	xmlns:html="http://www.w3.org/1999/xhtml"
-	xmlns:com="sap.ui.commons">
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:com="sap.ui.commons">
 	<Page title="Title">
 		<content>
 			<Button text="Click Me" press="onButtonPressed" />
 			<Text id="output" />
 			<Text id="BindMode" />
-			<Input 	id="InputField" 
-					value="{/value}"
-					description="{/value}"
-					valueLiveUpdate="true"
-					width="50%"/>
+			<Input id="InputField" value="{/value}" description="{/value}"
+				valueLiveUpdate="true" width="50%" />
 			<!--Resource Model -->
-			<Text 	text="{i18n>TextCompCode}"
-					class="sapUiSmallMargin" />
+			<Text text="{i18n>TextCompCode}" class="sapUiSmallMargin" />
 			<Text text="{i18n>TextMasterData}" />
-			
+
 			<!-- XML Binding, Root <week> is ommitted -->
-			<Table id="XMLTable" items="{/days}"> 
+			<Table id="XMLTable" items="{/days}">
 				<headerToolbar>
 					<Toolbar>
 						<Title text="XML Binding" level="H2" />
@@ -42,12 +37,12 @@
 					</ColumnListItem>
 				</items>
 			</Table>
-			
-			<!-- JSON Binding  -->
+
+			<!-- JSON Binding -->
 			<Table id="JSONTable" items="{/week}">
 				<headerToolbar>
 					<Toolbar>
-						<Title text="JSON Binding" level="H2"/>
+						<Title text="JSON Binding" level="H2" />
 					</Toolbar>
 				</headerToolbar>
 				<columns>
@@ -71,10 +66,64 @@
 					</ColumnListItem>
 				</items>
 			</Table>
-			
+
 			<!-- Aggregation Binding - Factory -->
-			<Tree id="Tree" headerText="Aggregation Binding with Factory Function"> 
+			<Tree id="Tree"
+				headerText="Aggregation Binding with Factory Function">
 			</Tree>
+
+			<!-- Element Binding -->
+			<FlexBox direction="Column" alignItems="Start">
+				<items>
+					<Table id="master" inset="false" items="{/weekdays}"
+						mode="SingleSelectMaster" selectionChange="onSelectWeekDay">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="Weekdays" level="H2" />
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="Weekday" />
+							</Column>
+							<Column>
+								<Text text="Number of meals" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{day}" />
+									<Text text="{no_meals}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<Table id="slave" inset="false" items="{meals}">
+						<headerToolbar>
+							<Toolbar>
+							<Title text="Meals" level="H2" />
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="Meal" />
+							</Column>
+							<Column>
+								<Text text="Description" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{MealNo}" />
+									<Text text="{items}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</items>
+			</FlexBox>
 		</content>
 	</Page>
 </core:View>
