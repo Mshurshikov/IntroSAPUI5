@@ -4,6 +4,14 @@
 	xmlns:html="http://www.w3.org/1999/xhtml" >
 	<Page title="Intermediate SAPUI5">
 		<content>
+			<Label text="Enter number" />
+			<Input id="price"
+				valueLiveUpdate="true"
+				value="{
+					path: '/name',
+					type: 'sap.ui.model.type.Float'
+				}"
+			/>
 		</content>
 	</Page>
 </core:View>
