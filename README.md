@@ -1,6 +1,6 @@
-#Introduction in SAPUI5
+# Introduction in SAPUI5
 
-##SAPUI5 Basics
+## SAPUI5 Basics
 
 SAPUI5 Basics are developed in the project IntroSAPUI5.
 
@@ -21,7 +21,7 @@ Following topics are covered:
   * Expression Binding
   * Custom Data Binding
 
-##SAPUI5 Intermediate
+## SAPUI5 Intermediate
 
 Intermediate technics are covered in the project IntermediateSAPUI5.
 
