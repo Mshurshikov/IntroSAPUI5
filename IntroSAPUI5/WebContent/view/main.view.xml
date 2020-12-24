@@ -28,7 +28,10 @@
 						<Text text="Comment" />
 					</Column>
 					<Column>
-						<Text  text="Rating"/>
+						<Text  text="Rating with Formatter"/>
+					</Column>
+					<Column>
+						<Text  text="Rating with Expression"/>
 					</Column>
 				</columns>
 				<items>
@@ -37,6 +40,7 @@
 							<Text text="{day}" />
 							<Text text="{day/@comment}" />
 							<RatingIndicator value="{path: 'rating', formatter: 'my.util.Formatter.parseFloat'}" />
+							<RatingIndicator value="{= Math.floor(${rating}) }" />
 						</cells>
 					</ColumnListItem>
 				</items>
