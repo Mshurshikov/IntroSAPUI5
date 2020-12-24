@@ -63,6 +63,11 @@ sap.ui.define([
 			var oWeekMenuModelSlave = new sap.ui.model.json.JSONModel();
 			oWeekMenuModelSlave.loadData("model/weekmenu.json");
 			this.getView().byId("slave").setModel(oWeekMenuModelSlave);
+			
+			//Custom Data Binding
+			var oUserModel = new sap.ui.model.json.JSONModel();
+			oUserModel.loadData("model/user.json");
+			this.getView().byId("userList").setModel(oUserModel);
 		},
 		
 		weekMenuTreeNodeFactory: function(sId, oContext) {
@@ -87,6 +92,10 @@ sap.ui.define([
 			var oContext = oEvent.getSource().getSelectedItem().getBindingContext();
 			var sBindingPath = oContext.getPath();
 			this.getView().byId("slave").bindElement(sBindingPath);
+		},
+		
+		onSelectLine: function(oEvent) {
+			console.log(oEvent.getSource().data("UserID"));
 		},
 		
 		onButtonPressed: function(oEvent) {

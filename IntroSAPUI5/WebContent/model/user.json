@@ -1,0 +1,14 @@
+{
+	"user": [
+		{
+			"UserId": "MUSTERMAX",
+			"FirstName": "Max",
+			"LastName": "Mustermann"
+		},
+		{
+			"UserId": "LISMU",
+			"FirstName": "Liesschen",
+			"LastName": "Mueller"
+		}
+	]
+}

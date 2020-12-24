@@ -1,7 +1,8 @@
 <core:View xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
 	xmlns:form="sap.ui.layout.form" controllerName="controller.main"
-	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:com="sap.ui.commons">
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:com="sap.ui.commons"
+	xmlns:CustData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 	<Page title="Title">
 		<content>
 			<Button text="Click Me" press="onButtonPressed" />
@@ -132,6 +133,11 @@
 					</Table>
 				</items>
 			</FlexBox>
+			
+			<!-- Custom Data Binding -->
+			<List id="userList" headerText="Custom Data Binding" items="{/user}" includeItemInSelection="true">
+				<StandardListItem title="{FirstName} {LastName}" type="Active" press="onSelectLine" CustData:UserID="{UserId}" />
+			</List>
 		</content>
 	</Page>
 </core:View>
