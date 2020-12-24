@@ -22,10 +22,13 @@
 				</headerToolbar>
 				<columns>
 					<Column>
-						<Text text="Tag" />
+						<Text text="Day" />
 					</Column>
 					<Column>
-						<Text text="Kommentar" />
+						<Text text="Comment" />
+					</Column>
+					<Column>
+						<Text  text="Rating"/>
 					</Column>
 				</columns>
 				<items>
@@ -33,6 +36,7 @@
 						<cells>
 							<Text text="{day}" />
 							<Text text="{day/@comment}" />
+							<RatingIndicator value="{path: 'rating', formatter: 'my.util.Formatter.parseFloat'}" />
 						</cells>
 					</ColumnListItem>
 				</items>
@@ -47,13 +51,13 @@
 				</headerToolbar>
 				<columns>
 					<Column>
-						<Text text="Tag" />
+						<Text text="Day" />
 					</Column>
 					<Column>
-						<Text text="Kommentar" />
+						<Text text="Comment" />
 					</Column>
 					<Column>
-						<Text text="Bewertung" />
+						<Text text="Rating" />
 					</Column>
 				</columns>
 				<items>

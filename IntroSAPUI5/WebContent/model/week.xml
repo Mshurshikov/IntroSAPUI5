@@ -1,23 +1,30 @@
 <week>
 	<days>
 		<day comment="Garfield: Ich hasse Montage!">Montag</day>
+		<rating>0</rating>
 	</days>
 	<days>
 		<day comment="Wenigstens nicht Montag">Dienstag</day>
+		<rating>1</rating>
 	</days>
 	<days>
 		<day comment="Besser als Bergfest bekannt!">Mittwoch</day>
+		<rating>2</rating>
 	</days>
 	<days>
 		<day comment="Kurz vor Freitag">Donnerstag</day>
+		<rating>3</rating>
 	</days>
 	<days>
 		<day comment="Es ist Freitag">Freitag</day>
+		<rating>4</rating>
 	</days>
 	<days>
 		<day comment="Wochenende...!">Samstag</day>
+		<rating>5</rating>
 	</days>
 	<days>
 		<day comment="Wochenende...!">Sonntag</day>
+		<rating>5</rating>
 	</days>
 </week>
