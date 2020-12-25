@@ -4,8 +4,9 @@
 	xmlns:html="http://www.w3.org/1999/xhtml" >
 	<Page title="Intermediate SAPUI5">
 		<content>
-			<Label text="Enter number" />
+			<Label text="Enter number" class="sapUiMediumMargin" />
 			<Input id="price"
+				class="sapUiResponsiveMargin"
 				valueLiveUpdate="true"
 				value="{
 					path: '/name',
@@ -13,6 +14,7 @@
 				}"
 			/>
 			<Input id="password"
+				class="sapUiResponsiveMargin"
 				type="Password"
 				valueLiveUpdate="true"
 				value="{
