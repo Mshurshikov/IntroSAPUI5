@@ -12,6 +12,14 @@
 					type: 'sap.ui.model.type.Float'
 				}"
 			/>
+			<Input id="password"
+				type="Password"
+				valueLiveUpdate="true"
+				value="{
+					path: '/pwd',
+					type: '.myPasswordType'
+				}" 
+			/>
 		</content>
 	</Page>
 </core:View>
