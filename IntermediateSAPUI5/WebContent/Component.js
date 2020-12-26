@@ -4,16 +4,19 @@ sap.ui.define([
 	"use strict";
 	return UIComponent.extend("my.Component", {
 		
-		//metadata: { },
-		
-		//init: function() {},
-		
-		createContent: function() {
-			return this.view = sap.ui.view({
-				id: "main",
+		metadata: { 
+			rootView: {
 				viewName: "my.app.view.main",
 				type: sap.ui.core.mvc.ViewType.XML
-			});
-		}
+			}
+		},
+		
+		init: function() {
+			sap.ui.core.UIComponent.prototype.init.apply(this, arguments);
+		},
+		
+		//createContent: function() {
+
+		//}
 	});
 });
