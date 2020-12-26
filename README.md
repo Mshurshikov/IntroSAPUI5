@@ -32,6 +32,9 @@ Following topics are covered:
 - Layouts
   * Standard CSS classes
 - Components
+  * Routing & Navigation
+  * NotFound page
+  * Data transfer between Views
 - Fragments
 - Customer controls
 - Communication with SAP Backend
