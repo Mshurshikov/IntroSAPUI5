@@ -1,8 +1,10 @@
-<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-		controllerName="my.app.controller.first" xmlns:html="http://www.w3.org/1999/xhtml">
-	<Page title="Title">
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="my.app.controller.first"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="First Page">
 		<content>
-	
+			<Slider max="100" change="onSlide" liveChange="onSlide"></Slider>
 		</content>
 	</Page>
 </core:View>

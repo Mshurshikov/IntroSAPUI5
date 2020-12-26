@@ -2,7 +2,8 @@
 	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
 	xmlns:form="sap.ui.layout.form" controllerName="my.app.controller.main"
 	xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true">
-	<App>
+	<App id="App">
+		<!--  
 		<pages>
 			<Page title="Intermediate SAPUI5">
 				<content>
@@ -25,5 +26,6 @@
 				</content>
 			</Page>
 		</pages>
+		-->
 	</App>
 </core:View>
