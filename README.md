@@ -27,7 +27,10 @@ Intermediate technics are covered in the project IntermediateSAPUI5.
 
 Following topics are covered:
 - Data types
+  * Standard data types
+  * Custom data types
 - Layouts
+  * Standard CSS classes
 - Components
 - Fragments
 - Customer controls
