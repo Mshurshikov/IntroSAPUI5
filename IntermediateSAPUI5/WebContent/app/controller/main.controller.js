@@ -3,7 +3,7 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel"
 ], function (Controller, JSONModel) {
 	"use strict";
-	return Controller.extend("app.controller.main", {
+	return Controller.extend("my.app.controller.main", {
 		onInit: function() {
 			// Input type validation
 			this.getView().setModel(

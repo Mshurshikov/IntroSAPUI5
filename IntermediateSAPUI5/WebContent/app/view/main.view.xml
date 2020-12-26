@@ -1,27 +1,29 @@
 <core:View xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-	xmlns:form="sap.ui.layout.form" controllerName="app.controller.main"
-	xmlns:html="http://www.w3.org/1999/xhtml" >
-	<Page title="Intermediate SAPUI5">
-		<content>
-			<Label text="Enter number" class="sapUiMediumMargin" />
-			<Input id="price"
-				class="sapUiResponsiveMargin"
-				valueLiveUpdate="true"
-				value="{
-					path: '/name',
-					type: 'sap.ui.model.type.Float'
-				}"
-			/>
-			<Input id="password"
-				class="sapUiResponsiveMargin"
-				type="Password"
-				valueLiveUpdate="true"
-				value="{
-					path: '/pwd',
-					type: '.myPasswordType'
-				}" 
-			/>
-		</content>
-	</Page>
+	xmlns:form="sap.ui.layout.form" controllerName="my.app.controller.main"
+	xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="Intermediate SAPUI5">
+				<content>
+					<Panel>
+						<content>
+							<Label text="Enter number" class="sapUiTinyMargin"
+								labelFor="price"/>
+							<Input id="price" valueLiveUpdate="true"
+								class="sapUiTinyMargin" width="40%"
+								value="{
+								 path: '/name',
+								 type: 'sap.ui.model.type.Float' }" />
+							<Input id="password" type="Password" valueLiveUpdate="true"
+								class="sapUiTinyMargin" width="40%"
+								value="{
+								 path: '/pwd',
+								 type: '.myPasswordType' }" />
+						</content>
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</App>
 </core:View>
