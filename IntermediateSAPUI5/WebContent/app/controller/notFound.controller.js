@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Controller) {
 	return Controller.extend("my.app.controller.notFound", {
 		onLinkPressed: function() {
-			sap.ui.core.UIComponent.getRouterFor(this).navTo("first");
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("firstView");
 		}
 	});
 });

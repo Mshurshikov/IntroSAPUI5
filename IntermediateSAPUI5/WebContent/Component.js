@@ -30,6 +30,11 @@ sap.ui.define([
 						"pattern": "",
 						"name": "firstView",
 						"target": "goToFirst"
+					},
+					{
+						"pattern": ":all*:",
+						"name": "CatchAll",
+						"target": "notFound"
 					}
 				],
 
@@ -42,6 +47,10 @@ sap.ui.define([
 					"goToFirst": {
 						"viewName": "first",
 						"viewId": "First"
+					},
+					"notFound": {
+						"viewName": "notFound",
+						"viewId": "NotFound"
 					}
 				}
 			}

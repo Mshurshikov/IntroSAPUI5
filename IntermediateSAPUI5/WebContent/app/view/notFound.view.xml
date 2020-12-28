@@ -4,7 +4,7 @@
 	controllerName="my.app.controller.notFound"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	
-	<MessagePage description="" icon="{sap-icon://document}" id="page" text="Sorry, Page not found" title="404" >
+	<MessagePage description="" id="page" text="Sorry, Page not found" title="404" >
 		<customDescription>
 			<Link id="link" press="onLinkPressed" text="Go to Home Screen" />
 		</customDescription>
