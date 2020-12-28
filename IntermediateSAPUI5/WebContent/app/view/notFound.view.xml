@@ -1,0 +1,13 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form"
+	controllerName="my.app.controller.notFound"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	
+	<MessagePage description="" icon="{sap-icon://document}" id="page" text="Sorry, Page not found" title="404" >
+		<customDescription>
+			<Link id="link" press="onLinkPressed" text="Go to Home Screen" />
+		</customDescription>
+	</MessagePage>
+
+</core:View>
