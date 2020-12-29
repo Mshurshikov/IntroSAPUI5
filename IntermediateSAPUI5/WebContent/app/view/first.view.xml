@@ -5,6 +5,22 @@
 	<Page title="First Page">
 		<content>
 			<Slider max="100" change="onSlide" liveChange="onSlide"></Slider>
+			<Panel>
+				<content>
+					<Label text="Enter number" class="sapUiTinyMargin"
+						labelFor="price" />
+					<Input id="price" valueLiveUpdate="true"
+						class="sapUiTinyMargin" width="40%"
+						value="{
+								 path: '/name',
+								 type: 'sap.ui.model.type.Float' }" />
+					<Input id="password" type="Password" valueLiveUpdate="true"
+						class="sapUiTinyMargin" width="40%"
+						value="{
+								 path: '/pwd',
+								 type: '.myPasswordType' }" />
+				</content>
+			</Panel>
 		</content>
 	</Page>
 </core:View>

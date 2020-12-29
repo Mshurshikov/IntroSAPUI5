@@ -3,29 +3,5 @@
 	xmlns:form="sap.ui.layout.form" controllerName="my.app.controller.main"
 	xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true">
 	<App id="App">
-		<!--  
-		<pages>
-			<Page title="Intermediate SAPUI5">
-				<content>
-					<Panel>
-						<content>
-							<Label text="Enter number" class="sapUiTinyMargin"
-								labelFor="price"/>
-							<Input id="price" valueLiveUpdate="true"
-								class="sapUiTinyMargin" width="40%"
-								value="{
-								 path: '/name',
-								 type: 'sap.ui.model.type.Float' }" />
-							<Input id="password" type="Password" valueLiveUpdate="true"
-								class="sapUiTinyMargin" width="40%"
-								value="{
-								 path: '/pwd',
-								 type: '.myPasswordType' }" />
-						</content>
-					</Panel>
-				</content>
-			</Page>
-		</pages>
-		-->
 	</App>
 </core:View>
