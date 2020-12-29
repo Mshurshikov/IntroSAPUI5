@@ -6,6 +6,13 @@ sap.ui.define([
 	return UIComponent.extend("my.Component", {
 
 		metadata: {
+			"config": {
+				"serviceConfig": {
+					"name": "",
+					"serviceUrl": "app/model/weekmenu.json"
+				}
+			},
+			
 			"rootView": {
 				"viewName": "my.app.view.main",
 				"type": sap.ui.core.mvc.ViewType.XML
@@ -35,6 +42,11 @@ sap.ui.define([
 						"pattern": ":all*:",
 						"name": "CatchAll",
 						"target": "notFound"
+					},
+					{
+						"pattern": "{day}/{context}/{id}",
+						"name": "mealsView",
+						"target": "showMeals"
 					}
 				],
 
@@ -51,12 +63,23 @@ sap.ui.define([
 					"notFound": {
 						"viewName": "notFound",
 						"viewId": "NotFound"
+					},
+					"showMeals": {
+						"viewName": "meals",
+						"viewId": "Meals"
 					}
 				}
 			}
 		},
 
 		init: function() {
+			var mConfig = this.getMetadata().getConfig();
+			var rootPath = sap.ui.require.toUrl("my");		
+			var sServiceUrl = [rootPath, mConfig.serviceConfig.serviceUrl].join("/");
+			
+			var oModel = new sap.ui.model.json.JSONModel(sServiceUrl, true);
+			this.setModel(oModel);
+			
 			sap.ui.core.UIComponent.prototype.init.apply(this, arguments);
 
 			this.getRouter().initialize();

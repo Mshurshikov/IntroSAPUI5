@@ -7,7 +7,7 @@ sap.ui.define([
 	return Controller.extend("my.app.controller.first", {
 		onInit: function() {
 			// Input type validation
-			this.getView().setModel(
+			this.getView().byId("sapTypes").setModel(
 				new JSONModel({
 					price: ""
 				})

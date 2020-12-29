@@ -5,7 +5,7 @@
 	<Page title="First Page">
 		<content>
 			<Slider max="100" change="onSlide" liveChange="onSlide"></Slider>
-			<Panel>
+			<Panel id="sapTypes">
 				<content>
 					<Label text="Enter number" class="sapUiTinyMargin"
 						labelFor="price" />
@@ -21,6 +21,29 @@
 								 type: '.myPasswordType' }" />
 				</content>
 			</Panel>
+			<Table id="masterTable" inset="false" items="{/weekdays}" mode="SingleSelectMaster" selectionChange="onSelectWeekDay">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Weekdays" level="H2" />
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Weekday" />
+					</Column>
+					<Column>
+						<Text text="Number of meals"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{day}" />
+							<Text text="{no_meals}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
 		</content>
 	</Page>
 </core:View>
