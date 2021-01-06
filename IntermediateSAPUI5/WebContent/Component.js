@@ -39,14 +39,14 @@ sap.ui.define([
 						"target": "goToFirst"
 					},
 					{
-						"pattern": ":all*:",
-						"name": "CatchAll",
-						"target": "notFound"
-					},
-					{
 						"pattern": "{day}/{context}/{id}",
 						"name": "mealsView",
 						"target": "showMeals"
+					},
+					{
+						"pattern": ":all*:",
+						"name": "CatchAll",
+						"target": "notFound"
 					}
 				],
 

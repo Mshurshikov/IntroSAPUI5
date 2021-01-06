@@ -68,6 +68,17 @@ sap.ui.define([
 					return oValue;
 				}
 			}
-		})
+		}),
+		
+		onSelectWeekDay: function(oEvent) {
+			var sPath = oEvent.getSource().getBindingContext().getPath();
+			
+			var aContext = sPath.split("/");
+			UIComponent.getRouterFor(this).navTo("mealsView", { 		//pattern "{day}/{context}/{id}"
+				day: oEvent.getSource().getBindingContext().getProperty("day"),
+				context: aContext[1],
+				id: aContext[2]
+			});
+		}
 	});
 });

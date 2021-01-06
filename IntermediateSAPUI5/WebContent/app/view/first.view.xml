@@ -21,7 +21,7 @@
 								 type: '.myPasswordType' }" />
 				</content>
 			</Panel>
-			<Table id="masterTable" inset="false" items="{/weekdays}" mode="SingleSelectMaster" selectionChange="onSelectWeekDay">
+			<Table id="masterTable" inset="false" items="{/weekdays}">
 				<headerToolbar>
 					<Toolbar>
 						<Title text="Weekdays" level="H2" />
@@ -32,14 +32,14 @@
 						<Text text="Weekday" />
 					</Column>
 					<Column>
-						<Text text="Number of meals"/>
+						<Text text="Number of meals" />
 					</Column>
 				</columns>
 				<items>
-					<ColumnListItem>
+					<ColumnListItem press="onSelectWeekDay" type="Navigation">
 						<cells>
 							<Text text="{day}" />
-							<Text text="{no_meals}"/>
+							<Text text="{no_meals}" />
 						</cells>
 					</ColumnListItem>
 				</items>
