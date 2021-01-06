@@ -1,0 +1,12 @@
+ {
+	"name": "John",
+	"name2": "Doe",
+	"street": "NoName",
+	"number": "23",
+	"zip": "0815",
+	"city": "New York",
+	"country": "U.S.A.",
+	"vat": "DE4711",
+	"isCompany": false,
+	"isPerson": true
+}

@@ -23,7 +23,11 @@ sap.ui.define([
 			});
 			this.getView().attachValidationSuccess(function(oEvent) {
 				oController._setToNoneState(oEvent);
-			}); 
+			});
+			
+			this.getView().byId("fragmentGrid").setModel( 
+				new JSONModel("model/personalData.json")
+			);
 		},
 		
 		_setToErrorState: function(oEvent) {
