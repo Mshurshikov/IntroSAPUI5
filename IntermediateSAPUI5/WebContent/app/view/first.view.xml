@@ -1,6 +1,5 @@
 <core:View xmlns:core="sap.ui.core"
-	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-	xmlns:layout="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout"
 	controllerName="my.app.controller.first"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="First Page">
@@ -37,7 +36,8 @@
 					</Column>
 				</columns>
 				<items>
-					<ColumnListItem press="onSelectWeekDay" type="Navigation">
+					<ColumnListItem press="onSelectWeekDay"
+						type="Navigation">
 						<cells>
 							<Text text="{day}" />
 							<Text text="{no_meals}" />
@@ -45,14 +45,41 @@
 					</ColumnListItem>
 				</items>
 			</Table>
-			<layout:Grid defaultSpan="L12 M12 S12" width="auto" id="fragmentGrid">
+			<layout:Grid defaultSpan="L12 M12 S12" width="auto"
+				id="fragmentGrid">
 				<layout:content>
-					<core:Fragment fragmentName="my.app.view.fragment.person" type="XML">
+					<core:Fragment
+						fragmentName="my.app.view.fragment.person" type="XML">
 					</core:Fragment>
-					<core:Fragment fragmentName="my.app.view.fragment.company" type="XML">
+					<core:Fragment
+						fragmentName="my.app.view.fragment.company" type="XML">
 					</core:Fragment>
 				</layout:content>
 			</layout:Grid>
+			<Table id="TableWithFragment" items="{/weekdays}" inset="false"
+				mode="SingleSelectMaster" itemPress="onEntryPressed">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Table with fragments" level="H2" />
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Weekday" />
+					</Column>
+					<Column>
+						<Text text="Number of meals" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active">
+						<cells>
+							<Text text="{day}" />
+							<Text text="{no_meals}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
 		</content>
 	</Page>
 </core:View>

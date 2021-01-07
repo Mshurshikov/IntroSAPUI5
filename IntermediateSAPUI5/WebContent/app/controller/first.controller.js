@@ -83,6 +83,32 @@ sap.ui.define([
 				context: aContext[1],
 				id: aContext[2]
 			});
+		},
+		
+		onEntryPressed: function(oEvent) {
+			var oContext = oEvent.getSource().getSelectedItem().getBindingContext();
+			if(oContext) {
+				this.openPopup(oContext);
+			}
+		},
+		
+		openPopup: function(oContext) {
+			if(!this._oDialog){
+				this._oDialog = this.createPopup();
+			}
+			this.getView().addDependent(this._oDialog);
+			this._oDialog.setBindingContext(oContext);
+			this._oDialog.open();
+		},
+		
+		createPopup: function() {
+			var oDialog =  sap.ui.xmlfragment("my.app.view.fragment.popup", this);
+			oDialog.setTitle("Fragment Popup");
+			return oDialog;
+		},
+		
+		onDialogConfirm: function() {
+			this._oDialog.close();
 		}
 	});
 });

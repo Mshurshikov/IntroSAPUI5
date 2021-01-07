@@ -1,0 +1,13 @@
+<Dialog xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" >
+	<content>
+		<f:SimpleForm>
+			<Label text="Day" />
+			<Input value="{day}" editable="false"/>
+			<Label text="Number of meals" />
+			<Input value="{no_meals}" editable="false" />
+		</f:SimpleForm>
+	</content>
+	<buttons>
+		<Button text="OK" press="onDialogConfirm" />
+	</buttons>
+</Dialog>
