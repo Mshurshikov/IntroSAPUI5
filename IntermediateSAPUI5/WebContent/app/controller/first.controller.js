@@ -26,7 +26,7 @@ sap.ui.define([
 			});
 			
 			this.getView().byId("fragmentGrid").setModel( 
-				new JSONModel("model/personalData.json")
+				new JSONModel("./app/model/personalData.json")
 			);
 		},
 		

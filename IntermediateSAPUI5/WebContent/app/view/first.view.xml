@@ -49,7 +49,7 @@
 				<layout:content>
 					<core:Fragment fragmentName="my.app.view.fragment.person" type="XML">
 					</core:Fragment>
-					<core:Fragment fragmentName="my.app.viewfragment.company" type="XML">
+					<core:Fragment fragmentName="my.app.view.fragment.company" type="XML">
 					</core:Fragment>
 				</layout:content>
 			</layout:Grid>

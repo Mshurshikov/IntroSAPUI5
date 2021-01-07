@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<f:SimpleForm title="Private adress" visible="{/isPerson}">
+		<f:content>
+			<Label text="Name" />
+			<Text text="{/name}" />
+			<Label text="Surname" />
+			<Text text="{/name2}" />
+			<Label text="Street" />
+			<Text text="{/street} {/number}" />
+			<Label text="City" />
+			<Text text="{/zip} {/city}" />
+			<Label text="Country" />
+			<Text text="{/country}" />
+		</f:content>
+	</f:SimpleForm>
+</core:FragmentDefinition>
