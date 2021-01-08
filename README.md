@@ -36,5 +36,6 @@ Following topics are covered:
   * NotFound page
   * Data transfer between Views
 - Fragments
-- Customer controls
-- Communication with SAP Backend
+  * Built-In Fragments
+  * Pop-Up Fragments
+- Custom controls
