@@ -1,0 +1,37 @@
+.myMBtn {
+	height: 4rem !important;
+}
+
+.myMBtnInner {
+	height: 3.5rem !important;
+}
+
+.myMBtnIcon {
+	line-height: 2rem !important;
+	width: 2rem !important;
+	max-height: 2rem !important;
+	position: relative !important;
+}
+
+.myMBtnPaddingLeft {
+	padding-left: 0;
+}
+
+.myMBtnPaddingRight {
+	padding-right: 0;
+}
+
+.myMBtnContentLeft {
+	padding: 0 5px;
+	margin-top: -1.9rem;
+	line-height: 1.3rem !important;
+}
+
+.myMBtnContentRight {
+	padding: 0 5px;
+	line-height: 1.3rem !important;
+}
+
+.myMBtnIconLeft {
+	top: 1.25rem !important;
+}
