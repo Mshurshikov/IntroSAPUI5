@@ -1,6 +1,6 @@
 <core:View xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout"
-	controllerName="my.app.controller.first"
+	xmlns:my="my.app.control" controllerName="my.app.controller.first"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="First Page">
 		<content>
@@ -80,6 +80,18 @@
 					</ColumnListItem>
 				</items>
 			</Table>
+			<VBox class="sapUiSmallMarginBegin">
+				<Title level="H2" text="Custom Controls" />
+				<Button text="Standard Button" icon="sap-icon://customer"
+					press="onButtonPressed" />
+				<my:Button text="Custom Button Standard"
+					icon="sap-icon://customer" press="onButtonPressed" />
+				<my:Button text="Custom Button with Top-Icon"
+					icon="sap-icon://customer" iconVAlign="Top" press="onButtonPressed" />
+				<my:Button text="Custom Button with Bottom-Icon"
+					icon="sap-icon://accept" iconVAlign="Bottom"
+					press="onButtonPressed" type="Accept" />
+			</VBox>
 		</content>
 	</Page>
 </core:View>

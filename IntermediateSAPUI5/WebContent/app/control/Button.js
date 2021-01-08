@@ -45,6 +45,8 @@ sap.ui.define([
 					this.$("inner").addClass("myMBtnInner");
 				} 
 			}
-		}
+		},
+		
+		renderer: {}
 	});
 });

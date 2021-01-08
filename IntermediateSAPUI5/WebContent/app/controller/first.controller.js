@@ -109,6 +109,10 @@ sap.ui.define([
 		
 		onDialogConfirm: function() {
 			this._oDialog.close();
-		}
+		},
+		
+		onButtonPressed: function(oEvent) {
+			sap.m.MessageToast.show(oEvent.getSource().getProperty("text"));
+		} 
 	});
 });
