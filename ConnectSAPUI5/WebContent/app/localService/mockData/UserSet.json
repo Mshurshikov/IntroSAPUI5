@@ -1,0 +1,121 @@
+[{
+	"Userid": "Userid 1",
+	"Fname": "Fname 1",
+	"Lname": "Lname 1",
+	"Function": "Function 1",
+	"Department": "Department 1",
+	"Phone": "Phone 1",
+	"Mail": "Mail 1",
+	"__metadata": {
+		"uri": "UserSet('Userid 1')",
+		"type": "metadata.User"
+	}
+}, {
+	"Userid": "Userid 2",
+	"Fname": "Fname 2",
+	"Lname": "Lname 2",
+	"Function": "Function 2",
+	"Department": "Department 2",
+	"Phone": "Phone 2",
+	"Mail": "Mail 2",
+	"__metadata": {
+		"uri": "UserSet('Userid 2')",
+		"type": "metadata.User"
+	}
+}, {
+	"Userid": "Userid 3",
+	"Fname": "Fname 3",
+	"Lname": "Lname 3",
+	"Function": "Function 3",
+	"Department": "Department 3",
+	"Phone": "Phone 3",
+	"Mail": "Mail 3",
+	"__metadata": {
+		"uri": "UserSet('Userid 3')",
+		"type": "metadata.User"
+	}
+}, {
+	"Userid": "Userid 4",
+	"Fname": "Fname 4",
+	"Lname": "Lname 4",
+	"Function": "Function 4",
+	"Department": "Department 4",
+	"Phone": "Phone 4",
+	"Mail": "Mail 4",
+	"__metadata": {
+		"uri": "UserSet('Userid 4')",
+		"type": "metadata.User"
+	}
+}, {
+	"Userid": "Userid 5",
+	"Fname": "Fname 5",
+	"Lname": "Lname 5",
+	"Function": "Function 5",
+	"Department": "Department 5",
+	"Phone": "Phone 5",
+	"Mail": "Mail 5",
+	"__metadata": {
+		"uri": "UserSet('Userid 5')",
+		"type": "metadata.User"
+	}
+}, {
+	"Userid": "Userid 6",
+	"Fname": "Fname 6",
+	"Lname": "Lname 6",
+	"Function": "Function 6",
+	"Department": "Department 6",
+	"Phone": "Phone 6",
+	"Mail": "Mail 6",
+	"__metadata": {
+		"uri": "UserSet('Userid 6')",
+		"type": "metadata.User"
+	}
+}, {
+	"Userid": "Userid 7",
+	"Fname": "Fname 7",
+	"Lname": "Lname 7",
+	"Function": "Function 7",
+	"Department": "Department 7",
+	"Phone": "Phone 7",
+	"Mail": "Mail 7",
+	"__metadata": {
+		"uri": "UserSet('Userid 7')",
+		"type": "metadata.User"
+	}
+}, {
+	"Userid": "Userid 8",
+	"Fname": "Fname 8",
+	"Lname": "Lname 8",
+	"Function": "Function 8",
+	"Department": "Department 8",
+	"Phone": "Phone 8",
+	"Mail": "Mail 8",
+	"__metadata": {
+		"uri": "UserSet('Userid 8')",
+		"type": "metadata.User"
+	}
+}, {
+	"Userid": "Userid 9",
+	"Fname": "Fname 9",
+	"Lname": "Lname 9",
+	"Function": "Function 9",
+	"Department": "Department 9",
+	"Phone": "Phone 9",
+	"Mail": "Mail 9",
+	"__metadata": {
+		"uri": "UserSet('Userid 9')",
+		"type": "metadata.User"
+	}
+}, {
+	"Userid": "Userid 10",
+	"Fname": "Fname 10",
+	"Lname": "Lname 10",
+	"Function": "Function 10",
+	"Department": "Department 10",
+	"Phone": "Phone 10",
+	"Mail": "Mail 10",
+	"__metadata": {
+		"uri": "UserSet('Userid 10')",
+		"type": "metadata.User"
+	}
+}]

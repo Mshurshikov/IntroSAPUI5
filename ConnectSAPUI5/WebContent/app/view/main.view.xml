@@ -2,7 +2,24 @@
 		controllerName="my.app.controller.main" xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="SAPUI5 Connection">
 		<content>
-	
+			<Table id="userTable" items="{ path: '/UserSet' }" growing="true" growingScrollToLoad="true">
+				<columns>
+					<Column>
+						<Text text="User ID" />
+					</Column>
+					<Column>
+						<Text text="First Name" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{Userid}"/>
+							<Text text="{Fname}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
 		</content>
 	</Page>
 </core:View>
