@@ -39,3 +39,12 @@ Following topics are covered:
   * Built-In Fragments
   * Pop-Up Fragments
 - Custom controls
+
+## SAPUI5 System Connection
+
+System connection using OData and SAP Gateway is implemented in the project ConnectSAPUI5.
+
+Following topics are covered:
+- Modelling OData
+- Consuming OData
+- Implementation of mock server
