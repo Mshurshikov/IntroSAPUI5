@@ -4,17 +4,15 @@ sap.ui.define([
 	"use strict";
 
 	return {
+		oMockServer: MockServer,
+		
 		init: function() {
-			var oMockServer = new MockServer({
+			this.oMockServer = new MockServer({
 				rootUri: "https://mymockserver/"
 			});
 
-			MockServer.config({
-				autoRespond: true,
-			});
-
-			oMockServer.simulate("../localService/metadata.xml"); //), "../localService/mockData");
-			oMockServer.start();
+			this.oMockServer.simulate("../localService/metadata.xml", "../localService/mockData");
+			this.oMockServer.start();
 		}
 	}
 });

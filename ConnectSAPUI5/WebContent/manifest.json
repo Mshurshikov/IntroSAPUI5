@@ -1,0 +1,30 @@
+{
+	"sap.app": {
+		"id": "my.app.ConnectSAPUI5",
+		"type": "application",
+		"dataSources": {
+			"mainService": {
+				"uri": "https://mymockserver/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "app/localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "my.app.view.main",
+			"type": "XML",
+			"async": true,
+			"id": "App"
+		},
+
+		"models": {
+			"": {
+				"dataSource": "mainService"
+			}
+		}
+	}
+}

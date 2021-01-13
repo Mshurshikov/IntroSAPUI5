@@ -15,10 +15,19 @@
 
 		<script>
 				sap.ui.localResources("app");
-				var app = new sap.m.App({initialPage:"main"});
-				var page = sap.ui.view({id:"main", viewName:"app.view.main", type:sap.ui.core.mvc.ViewType.XML});
-				app.addPage(page);
-				app.placeAt("content");
+				
+				sap.ui.getCore().attachInit(function() {
+					var oComponent = sap.ui.component({
+						id: "Component",
+						name: "my"
+					});
+					new sap.m.Shell("Shell", {
+						app: new sap.ui.core.ComponentContainer({
+							height: "100%",
+							component: oComponent
+						})
+					}).placeAt("content");
+				});
 		</script>
 
 	</head>

@@ -1,34 +1,40 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
 
-<script src="../../resources/sap-ui-core.js" id="sap-ui-bootstrap"
-	data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_bluecrystal"
-	data-sap-ui-xx-bindingSyntax="complex"
-	data-sap-ui-resourceroots='{"my": "../../"}'
-	data-sap-ui-oninit="module:my/app/test/initMockServer">
-	
-</script>
-<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+		<script src="../../resources/sap-ui-core.js"
+				id="sap-ui-bootstrap"
+				data-sap-ui-libs="sap.m"
+				data-sap-ui-theme="sap_bluecrystal"
+				data-sap-ui-xx-bindingSyntax="complex"
+				data-sap-ui-resourceroots='{"my": "../../"}'
+				data-sap-ui-oninit="module:my/app/test/initMockServer"
+				data-sap-ui-async="true">
+		</script>
+		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+		<!--
+		<script>
+				sap.ui.localResources("app");
+				
+				sap.ui.getCore().attachInit(function() {
+					var oComponent = sap.ui.component({
+						id: "Component",
+						name: "my"
+					});
+					new sap.m.Shell("Shell", {
+						app: new sap.ui.core.ComponentContainer({
+							height: "100%",
+							component: oComponent
+						})
+					}).placeAt("content");
+				});
+		</script>
+		 -->
 
-<script>
-	sap.ui.localResources("../../app");
-	var app = new sap.m.App({
-		initialPage : "main"
-	});
-	var page = sap.ui.view({
-		id : "main",
-		viewName : "my.app.view.main",
-		type : sap.ui.core.mvc.ViewType.XML
-	});
-	app.addPage(page);
-	app.placeAt("content");
-</script>
-
-</head>
-<body class="sapUiBody" role="application">
-	<div id="content"></div>
-</body>
+	</head>
+	<body class="sapUiBody">
+	<div data-sap-ui-component data-name="my" data-id="container" data-settings='{"id" : "ConnectSAPUI5"}'></div>
+	</body>
 </html>
