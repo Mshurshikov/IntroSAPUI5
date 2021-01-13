@@ -5,6 +5,10 @@ sap.ui.define([
 	return Controller.extend("my.app.controller.home", {
 		onInit: function() {
 			
+		},
+		
+		onTilePressed: function(oEvent) {
+			this.getRouter().navTo(oEvent.getSource().data("target"));
 		}
 	});
 });

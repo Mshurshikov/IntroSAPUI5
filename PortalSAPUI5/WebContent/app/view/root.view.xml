@@ -3,7 +3,7 @@
 	controllerName="my.app.controller.root">
 	<u:Shell>
 		<u:user>
-			<u:ShellHeadUserItem id="UserHeadItem" image="i18n>app.user.placeholder" showPopupIndicator="false" />
+			<u:ShellHeadUserItem id="UserHeadItem" image="{i18n>app.user.placeholder}" showPopupIndicator="false" />
 		</u:user>
 		<u:content>
 			<Shell>

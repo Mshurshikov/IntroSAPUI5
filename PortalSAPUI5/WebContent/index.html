@@ -7,7 +7,11 @@
 		<script src="resources/sap-ui-core.js"
 				id="sap-ui-bootstrap"
 				data-sap-ui-libs="sap.m"
-				data-sap-ui-theme="sap_bluecrystal">
+				data-sap-ui-theme="sap_bluecrystal"
+				data-sap-ui-xx-bindingSyntax="complex"
+				data-sap-ui-resourceroots='{"my": "./"}'
+				data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+				data-sap-ui-async="true">
 		</script>
 		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
 
@@ -16,7 +20,7 @@
 		</script>
 
 	</head>
-	<body class="sapUiBody" role="application">
-		<div id="content"></div>
+	<body class="sapUiBody">
+		<div data-sap-ui-component data-name="my" data-id="container" data-settings='{"id" : "PortalSAPUI5"}'></div>
 	</body>
 </html>

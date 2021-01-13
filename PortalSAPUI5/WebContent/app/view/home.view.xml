@@ -1,14 +1,14 @@
 <core:View xmlns:core="sap.ui.core" xmlns="sap.m"
-	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core/CustomData/1"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	controllerName="my.app.controller.home">
-	<Page title="{i18n>home.title}" showNavButton="true"
+	<Page title="{i18n>app.title}" showNavButton="true"
 		navButtonPress="onBackPressed">
 		<TileContainer>
 			<tiles>
-				<StandardTile icon="{i18n>task.icon}" title="{i18n>task.title.short" press="onTilePressed" data:target="task" />
-				<StandardTile icon="{i18n>timesheet.icon}" title="{i18n>timesheet.title.short" press="onTilePressed" data:target="timesheet" />
-				<StandardTile icon="{i18n>leave.icon}" title="{i18n>leave.title.short" press="onTilePressed" data:target="leave" />
-				<StandardTile icon="{i18n>route.icon}" title="{i18n>route.title.short" press="onTilePressed" data:target="route" />
+				<StandardTile icon="{i18n>task.icon}" title="{i18n>task.title.short}" press="onTilePressed" data:target="task" />
+				<StandardTile icon="{i18n>timesheet.icon}" title="{i18n>timesheet.title.short}" press="onTilePressed" data:target="timesheet" />
+				<StandardTile icon="{i18n>leave.icon}" title="{i18n>leave.title.short}" press="onTilePressed" data:target="leave" />
+				<StandardTile icon="{i18n>route.icon}" title="{i18n>route.title.short}" press="onTilePressed" data:target="route" />
 			</tiles>
 		</TileContainer>
 	</Page>

@@ -5,6 +5,10 @@ sap.ui.define([
 	return Controller.extend("my.app.controller.route", {
 		onInit: function() {
 			
+		},
+		
+		onBackPressed: function() {
+			this.getRouter().navTo("home");
 		}
 	});
 });
