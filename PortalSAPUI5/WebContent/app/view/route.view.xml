@@ -1,0 +1,5 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m" controllerName="my.app.controller.route">
+	<Page title="{i18n>route.title}" showNavButton="true" navButtonPress="onBackPressed">
+		
+	</Page>
+</core:View>
