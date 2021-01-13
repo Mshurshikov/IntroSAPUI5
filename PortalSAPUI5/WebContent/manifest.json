@@ -1,3 +1,73 @@
 {
-	
+	"start_url": "index.html",
+	"sap.ui5": {
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "app/i18n/i18n.properties"
+			}
+		},
+		"rootView": "my.app.view.root",
+		"handleValidation": "true",
+		
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "my.app.view",
+				"controlId": "App",
+				"controlAggregation": "pages",
+				"clearTarget": false
+			},
+			"targets": {
+				"home": {
+					"viewName": "home",
+					"viewLevel": 0
+				},
+				"task": {
+					"viewName": "task",
+					"viewLevel": 1
+				},
+				"timesheet": {
+					"viewName": "timesheet",
+					"viewLevel": 1
+				},
+				"leave": {
+					"viewName": "leave",
+					"viewLevel": 1
+				},
+				"route": {
+					"viewName": "route",
+					"viewLevel": 1
+				}
+			},
+			"routes": [
+				{
+					"pattern": "task",
+					"name": "task",
+					"target": "task"
+				},
+				{
+					"pattern": "timesheet",
+					"name": "timesheet",
+					"target": "timesheet"
+				},
+				{
+					"pattern": "leave",
+					"name": "leave",
+					"target": "leave"
+				},
+				{
+					"pattern": "route",
+					"name": "route",
+					"target": "route"
+				},
+				{
+					"pattern": ":all*:",
+					"name": "home",
+					"target": "home"
+				}
+			]
+		}
+	}
 }
