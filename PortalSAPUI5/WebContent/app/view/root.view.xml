@@ -1,5 +1,16 @@
-<core:View xmlns:core="sap.ui.core" xmlns="sap.m" controllerName="my.app.controller.root">
-	<Page title="{i18n>root.title}" showNavButton="true" navButtonPress="onBackPressed">
-		
-	</Page>
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:u="sap.ui.unified"
+	controllerName="my.app.controller.root">
+	<u:Shell>
+		<u:user>
+			<u:ShellHeadUserItem id="UserHeadItem" image="i18n>app.user.placeholder" showPopupIndicator="false" />
+		</u:user>
+		<u:content>
+			<Shell>
+				<app>
+					<App id="App" />
+				</app>
+			</Shell>
+		</u:content>
+	</u:Shell>
 </core:View>
