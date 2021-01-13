@@ -1,5 +1,5 @@
 sap.ui.define([
-	"sap/ui/core/Controller"
+	"my/app/controller/BaseController"
 ], function(Controller) {
 	"use strict";
 	return Controller.extend("my.app.controller.leave", {
