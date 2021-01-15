@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+	xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+	xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="EmployeePortal" xml:lang="en"
+			sap:schema-version="1"
+			xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="AbsenceTypes" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="AbsKey" />
+				</Key>
+				<Property Name="AbsKey" Type="Edm.String" Nullable="false"
+					MaxLength="10" sap:label="Lower_value" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="AbsText" Type="Edm.String" Nullable="false"
+					MaxLength="60" sap:label="Short text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="StatusTypes" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="StatusKey" />
+				</Key>
+				<Property Name="StatusKey" Type="Edm.String"
+					Nullable="false" MaxLength="10" sap:label="Lower_value"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" />
+				<Property Name="StatusText" Type="Edm.String"
+					Nullable="false" MaxLength="60" sap:label="Short text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="User" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Username" />
+				</Key>
+				<Property Name="Username" Type="Edm.String"
+					Nullable="false" MaxLength="12" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" />
+				<Property Name="Department" Type="Edm.String"
+					MaxLength="40" sap:creatable="false" sap:sortable="false"
+					sap:filterable="false" />
+				<Property Name="Function" Type="Edm.String" MaxLength="40"
+					sap:creatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="PhoneNumber" Type="Edm.String"
+					MaxLength="30" sap:creatable="false" sap:sortable="false"
+					sap:filterable="false" />
+				<Property Name="PhoneExtension" Type="Edm.String"
+					MaxLength="10" sap:creatable="false" sap:sortable="false"
+					sap:filterable="false" />
+				<Property Name="Firstname" Type="Edm.String"
+					Nullable="false" MaxLength="40" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Lastname" Type="Edm.String"
+					Nullable="false" MaxLength="40" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="City" Type="Edm.String" MaxLength="40"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" />
+				<Property Name="Street" Type="Edm.String" MaxLength="60"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" />
+				<Property Name="HouseNumber" Type="Edm.String"
+					MaxLength="10" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" />
+				<Property Name="FaxNumber" Type="Edm.String" MaxLength="30"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" />
+				<Property Name="FaxExtension" Type="Edm.String"
+					MaxLength="10" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" />
+				<Property Name="Email" Type="Edm.String" MaxLength="241"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" />
+				<Property Name="CompanyName" Type="Edm.String"
+					MaxLength="42" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" />
+				<NavigationProperty Name="TimesheetSet"
+					Relationship="EmployeePortal.UserTimesheet"
+					FromRole="FromRole_UserTimesheet" ToRole="ToRole_UserTimesheet" />
+				<NavigationProperty Name="TaskSet"
+					Relationship="EmployeePortal.UserTask" FromRole="FromRole_UserTask"
+					ToRole="ToRole_UserTask" />
+				<NavigationProperty Name="AbsenceSet"
+					Relationship="EmployeePortal.UserAbsence"
+					FromRole="FromRole_UserAbsence" ToRole="ToRole_UserAbsence" />
+				<NavigationProperty Name="UserPhotoSet"
+					Relationship="EmployeePortal.UserUserPhoto"
+					FromRole="FromRole_UserUserPhoto" ToRole="ToRole_UserUserPhoto" />
+			</EntityType>
+			<EntityType Name="Absence" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Username" />
+					<PropertyRef Name="ReqID" />
+				</Key>
+				<Property Name="Username" Type="Edm.String"
+					Nullable="false" MaxLength="12" sap:updatable="false"
+					sap:sortable="false" />
+				<Property Name="ReqID" Type="Edm.Binary" Nullable="false"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" />
+				<Property Name="StartDate" Type="Edm.DateTime"
+					Nullable="false" Precision="0" sap:label="Date"
+					sap:updatable="false" sap:sortable="false" />
+				<Property Name="EndDate" Type="Edm.DateTime"
+					Nullable="false" Precision="0" sap:label="Date"
+					sap:updatable="false" sap:sortable="false" />
+				<Property Name="Type" Type="Edm.String" Nullable="false"
+					MaxLength="10" sap:updatable="false" sap:sortable="false" />
+				<Property Name="Description" Type="Edm.String"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Status" Type="Edm.String" Nullable="false"
+					MaxLength="2" sap:updatable="false" sap:sortable="false" />
+			</EntityType>
+			<EntityType Name="Task" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Username" />
+					<PropertyRef Name="TaskID" />
+				</Key>
+				<Property Name="Username" Type="Edm.String"
+					Nullable="false" MaxLength="12" sap:updatable="false"
+					sap:sortable="false" />
+				<Property Name="TaskID" Type="Edm.Guid" Nullable="false"
+					sap:label="UUID" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" />
+				<Property Name="CreationDate" Type="Edm.DateTime"
+					Nullable="false" Precision="0" sap:label="Date"
+					sap:updatable="false" sap:sortable="false" />
+				<Property Name="DueDate" Type="Edm.DateTime"
+					Nullable="false" Precision="0" sap:label="Date"
+					sap:sortable="false" />
+				<Property Name="Done" Type="Edm.Boolean" Nullable="false"
+					sap:label="Indicator" sap:sortable="false" />
+				<Property Name="Priority" Type="Edm.Int16" Nullable="false"
+					sap:label="Signed INT2 / int16" sap:sortable="false" />
+				<Property Name="Description" Type="Edm.String"
+					Nullable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="Timesheet" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Username" />
+					<PropertyRef Name="ActivityDate" />
+					<PropertyRef Name="TimeFrom" />
+					<PropertyRef Name="TimeTo" />
+				</Key>
+				<Property Name="Username" Type="Edm.String"
+					Nullable="false" MaxLength="12" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" />
+				<Property Name="ActivityDate" Type="Edm.DateTime"
+					Nullable="false" Precision="0" sap:updatable="false"
+					sap:sortable="false" />
+				<Property Name="TimeFrom" Type="Edm.Time" Nullable="false"
+					Precision="0" sap:updatable="false" sap:sortable="false" />
+				<Property Name="TimeTo" Type="Edm.Time" Nullable="false"
+					Precision="0" sap:updatable="false" sap:sortable="false" />
+				<Property Name="Internal" Type="Edm.Boolean"
+					Nullable="false" sap:label="Indicator" sap:updatable="false"
+					sap:sortable="false" />
+				<Property Name="CustomerID" Type="Edm.String"
+					MaxLength="10" sap:updatable="false" sap:sortable="false" />
+				<Property Name="ProjectID" Type="Edm.String" MaxLength="8"
+					sap:updatable="false" sap:sortable="false" />
+				<Property Name="Description" Type="Edm.String"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="Project" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="CustomerID" />
+					<PropertyRef Name="ProjectID" />
+				</Key>
+				<Property Name="CustomerID" Type="Edm.String"
+					Nullable="false" MaxLength="10" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="ProjectID" Type="Edm.String"
+					Nullable="false" MaxLength="8" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Description" Type="Edm.String"
+					Nullable="false" MaxLength="40" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="Customer" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="CustomerID" />
+				</Key>
+				<Property Name="CustomerID" Type="Edm.String"
+					Nullable="false" MaxLength="10" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Description" Type="Edm.String"
+					Nullable="false" MaxLength="40" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="UserPhoto" m:HasStream="true"
+				sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Username" />
+				</Key>
+				<Property Name="Username" Type="Edm.String"
+					Nullable="false" MaxLength="12" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="MediaResource" Type="Edm.Binary"
+					sap:sortable="false" sap:filterable="false" />
+				<Property Name="MimeType" Type="Edm.String" MaxLength="100"
+					sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<Association Name="UserUserPhoto" sap:content-version="1">
+				<End Type="EmployeePortal.User" Multiplicity="1"
+					Role="FromRole_UserUserPhoto" />
+				<End Type="EmployeePortal.UserPhoto" Multiplicity="1"
+					Role="ToRole_UserUserPhoto" />
+				<ReferentialConstraint>
+					<Principal Role="FromRole_UserUserPhoto">
+						<PropertyRef Name="Username" />
+					</Principal>
+					<Dependent Role="ToRole_UserUserPhoto">
+						<PropertyRef Name="Username" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="UserAbsence" sap:content-version="1">
+				<End Type="EmployeePortal.User" Multiplicity="1"
+					Role="FromRole_UserAbsence" />
+				<End Type="EmployeePortal.Absence" Multiplicity="*"
+					Role="ToRole_UserAbsence" />
+				<ReferentialConstraint>
+					<Principal Role="FromRole_UserAbsence">
+						<PropertyRef Name="Username" />
+					</Principal>
+					<Dependent Role="ToRole_UserAbsence">
+						<PropertyRef Name="Username" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="UserTask" sap:content-version="1">
+				<End Type="EmployeePortal.User" Multiplicity="1"
+					Role="FromRole_UserTask" />
+				<End Type="EmployeePortal.Task" Multiplicity="*"
+					Role="ToRole_UserTask" />
+				<ReferentialConstraint>
+					<Principal Role="FromRole_UserTask">
+						<PropertyRef Name="Username" />
+					</Principal>
+					<Dependent Role="ToRole_UserTask">
+						<PropertyRef Name="Username" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="UserTimesheet" sap:content-version="1">
+				<End Type="EmployeePortal.User" Multiplicity="1"
+					Role="FromRole_UserTimesheet" />
+				<End Type="EmployeePortal.Timesheet" Multiplicity="*"
+					Role="ToRole_UserTimesheet" />
+				<ReferentialConstraint>
+					<Principal Role="FromRole_UserTimesheet">
+						<PropertyRef Name="Username" />
+					</Principal>
+					<Dependent Role="ToRole_UserTimesheet">
+						<PropertyRef Name="Username" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="EmployeePortal_Entities"
+				m:IsDefaultEntityContainer="true"
+				sap:supported-formats="atom json xlsx">
+				<EntitySet Name="StatusTypesSet"
+					EntityType="EmployeePortal.StatusTypes" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:pageable="false"
+					sap:content-version="1" />
+				<EntitySet Name="UserSet" EntityType="EmployeePortal.User"
+					sap:creatable="false" sap:deletable="false" sap:pageable="false"
+					sap:content-version="1" />
+				<EntitySet Name="AbsenceSet"
+					EntityType="EmployeePortal.Absence" sap:updatable="false"
+					sap:pageable="false" sap:content-version="1" />
+				<EntitySet Name="TaskSet" EntityType="EmployeePortal.Task"
+					sap:pageable="false" sap:content-version="1" />
+				<EntitySet Name="TimesheetSet"
+					EntityType="EmployeePortal.Timesheet" sap:updatable="false"
+					sap:pageable="false" sap:content-version="1" />
+				<EntitySet Name="ProjectSet"
+					EntityType="EmployeePortal.Project" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:pageable="false"
+					sap:content-version="1" />
+				<EntitySet Name="CustomerSet"
+					EntityType="EmployeePortal.Customer" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:pageable="false"
+					sap:content-version="1" />
+				<EntitySet Name="UserPhotoSet"
+					EntityType="EmployeePortal.UserPhoto" sap:deletable="false"
+					sap:pageable="false" sap:content-version="1" />
+				<EntitySet Name="AbsenceTypesSet"
+					EntityType="EmployeePortal.AbsenceTypes" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:pageable="false"
+					sap:content-version="1" />
+				<AssociationSet Name="UserTimesheetSet"
+					Association="EmployeePortal.UserTimesheet" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="UserSet" Role="FromRole_UserTimesheet" />
+					<End EntitySet="TimesheetSet" Role="ToRole_UserTimesheet" />
+				</AssociationSet>
+				<AssociationSet Name="UserAbsenceSet"
+					Association="EmployeePortal.UserAbsence" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="UserSet" Role="FromRole_UserAbsence" />
+					<End EntitySet="AbsenceSet" Role="ToRole_UserAbsence" />
+				</AssociationSet>
+				<AssociationSet Name="UserUserPhotoSet"
+					Association="EmployeePortal.UserUserPhoto" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="UserSet" Role="FromRole_UserUserPhoto" />
+					<End EntitySet="UserPhotoSet" Role="ToRole_UserUserPhoto" />
+				</AssociationSet>
+				<AssociationSet Name="UserTaskSet"
+					Association="EmployeePortal.UserTask" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="UserSet" Role="FromRole_UserTask" />
+					<End EntitySet="TaskSet" Role="ToRole_UserTask" />
+				</AssociationSet>
+			</EntityContainer>
+			<atom:link rel="self"
+				href="http://ui5.sap.bsc-solutions.corp:52300/sap/opu/odata/sap/ZUI5_EMPLOYEE_PORTAL_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom" />
+			<atom:link rel="latest-version"
+				href="http://ui5.sap.bsc-solutions.corp:52300/sap/opu/odata/sap/ZUI5_EMPLOYEE_PORTAL_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom" />
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
