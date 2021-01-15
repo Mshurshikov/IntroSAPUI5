@@ -1,10 +1,30 @@
 {
 	"start_url": "index.html",
+	
+	"sap.app": {
+		"dataSources": {
+			"employee_portal": {
+				"uri": "https://my-sap-server:8080/sap/opu/odata/sap/employee_portal",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "app/localService/metadata.xml"
+				}
+			}
+		}	
+	},
+	
 	"sap.ui5": {
 		"models": {
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"uri": "app/i18n/i18n.properties"
+			},
+			"portal": {
+				"dataSource": "employee_portal",
+				"settings": {
+				
+				}
 			}
 		},
 		"rootView": "my.app.view.root",
