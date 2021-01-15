@@ -4,7 +4,7 @@
 	"sap.app": {
 		"dataSources": {
 			"employee_portal": {
-				"uri": "https://my-sap-server:8080/sap/opu/odata/sap/employee_portal",
+				"uri": "https://my-sap-server:8080/sap/opu/odata/sap/employee_portal/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
