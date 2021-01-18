@@ -9,7 +9,7 @@ sap.ui.define([
 			 * Username is not known, read first entry from Model	
 			 */
 			this.getModel("portal").read("/UserSet", {
-				success: jQuery.proxy(function(oEvent) {
+				success: function(oEvent) {
 					if(!oEvent.results.length) {return;}
 					
 					var sUsername = oEvent.results[0].Username;
@@ -26,13 +26,13 @@ sap.ui.define([
 							return sFirst + " " + sLast;
 						}
 					});
-				}, this),
-				error: jQuery.proxy(function() {
+				}.bind(this),
+				error: function() {
 					MessageBox.error(
 						this.getText("message.read.user.error"),
 						{ title: this.getText("message.error")}
 					);
-				}, this)
+				}.bind(this)
 			});
 		}
 	});
