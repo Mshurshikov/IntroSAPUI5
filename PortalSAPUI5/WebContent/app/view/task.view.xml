@@ -1,5 +1,47 @@
-<core:View xmlns:core="sap.ui.core" xmlns="sap.m" controllerName="my.app.controller.task">
-	<Page title="{i18n>task.title}" showNavButton="true" navButtonPress="onBackPressed">
-		
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:suite="sap.suite.ui.commons"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="my.app.controller.task">
+	<Page title="{i18n>task.title}" showNavButton="true"
+		navButtonPress="onBackPressed">
+		<suite:Timeline id="Timeline"
+			enableBackendFilter="true" growing="false" showHeaderBar="false"
+			enableScroll="false" width="100%"
+			content="{
+				path: 'portal>/TaskSet',
+				sorter: {
+					path: 'DueDate',
+					descending: false
+				},
+				filters: {
+					path: 'Done',
+					operator: 'EQ',
+					value1: 'false'
+				}
+			}">
+			<suite:content>
+				<suite:TimelineItem
+					dateTime="{ path: 'portal>DueDate',
+								type: 'sap.ui.model.type.Date'}"
+					title="{path: 'portal>Description'}" icon="{i18n>task.task.icon}"
+					sortOldestFirst="true">
+					<suite:embeddedControl>
+						<HBox class="sapUiSmallMargin">
+							<RatingIndicator class="sapUiTinyMarginTop"
+								maxValue="5" value="{portal>Priority}" />
+							<CheckBox text="{i18n>task.done}"
+								selected="{portal>Done}" select="onDoneChanged"
+								data:TaskID="{portal>TaskID}" data:Username="{portal>Username}" />
+						</HBox>
+					</suite:embeddedControl>
+				</suite:TimelineItem>
+			</suite:content>
+		</suite:Timeline>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button text="{i18n>task.new}" icon="{i18n>task.new.icon}" press="onNewPressed"/>
+			</Toolbar>
+		</footer>
 	</Page>
 </core:View>
