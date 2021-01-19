@@ -21,6 +21,10 @@ sap.ui.define([
 			if (sComponentId) {
 				return sap.ui.component(sComponentId);
 			}
+		},
+		
+		getText: function(sKey, aParams) {
+			return this.getModel("i18n").getResourceBundle().getText(sKey, aParams);
 		}
 	});
 });
