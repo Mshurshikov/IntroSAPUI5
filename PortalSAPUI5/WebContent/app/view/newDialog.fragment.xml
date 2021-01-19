@@ -1,7 +1,7 @@
 <Dialog xmlns="sap.m" xmlns:form="sap.ui.layout.form" title="{i18n>task.new}">
 	<form:SimpleForm editable="true" layout="ResponsiveGridLayout">
 		<Label text="{i18n>task.dueDate}" required="true" />
-		<DatePicker value="{task>/DueDate}" valueFormat="yyyy-MM-ddTHH:mm:ss" />
+		<DatePicker value="{path: 'task>/DueDate' type: 'sap.ui.model.type.DateTime' }" valueFormat="yyyy-MM-ddTHH:mm:ss" />
 		
 		<Label text="{i18n>task.task}" required="true" />
 		<Input type="Text" value="{task>/Description}" />

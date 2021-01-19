@@ -1,8 +1,9 @@
 sap.ui.define([
 	"my/app/controller/BaseController",
 	"sap/m/MessageToast",
-	"sap/m/MessageBox"
-], function(Controller, MessageToast, MessageBox) {
+	"sap/m/MessageBox",
+	"sap/ui/model/json/JSONModel"
+], function(Controller, MessageToast, MessageBox, JSONModel) {
 	"use strict";
 	return Controller.extend("my.app.controller.task", {
 		onInit: function() {
@@ -21,7 +22,7 @@ sap.ui.define([
 					{Done: true},
 					{
 						success: function() {
-							MessageToast.show(this.getText("message.update.success"))
+							MessageToast.show(this.getText("message.update.success"));
 						}.bind(this),
 						
 						error: function() {
@@ -36,7 +37,38 @@ sap.ui.define([
 		},
 		
 		onNewPressed: function() {
+			if(!this._oNewDialog) {
+				this._oNewDialog = sap.ui.xmlfragment("my.app.view.newDialog", this);
+				this._oNewModel = new JSONModel();
+				this._oNewDialog.setModel(this._oNewModel, "task");
+				
+				this._oNewDialog.attachBeforeOpen(function() {
+					this._oNewModel.setData({});
+				}, this);
+			}
+			this.getView().addDependent(this._oNewDialog);
+			this._oNewDialog.open();
+		},
+		
+		onNewCancelled: function() {
+			this._oNewDialog.close();
+		},
+		
+		onNewSaved: function(oEvent) {
+			var oModel = this.getModel("portal"),
+			oData = this._oNewModel.getData();
 			
+			oModel.create("/TaskSet", oData, {
+				success: function() {
+					MessageToast.show(this.getText("message.create.success"));
+				}.bind(this),
+				error: function() {
+					MessageBox.error(this.getText("message.create.error"), {
+						title: this.getText("message.error")
+					});
+				}.bind(this)
+			});
+			this._oNewDialog.close();
 		}
 	});
 });

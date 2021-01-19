@@ -6,7 +6,7 @@
 		navButtonPress="onBackPressed">
 		<suite:Timeline id="Timeline"
 			enableBackendFilter="true" growing="false" showHeaderBar="false"
-			enableScroll="false" width="100%"
+			enableScroll="false" width="100%" sortOldestFirst="true"
 			content="{
 				path: 'portal>/TaskSet',
 				sorter: {
@@ -23,8 +23,7 @@
 				<suite:TimelineItem
 					dateTime="{ path: 'portal>DueDate',
 								type: 'sap.ui.model.type.Date'}"
-					title="{path: 'portal>Description'}" icon="{i18n>task.task.icon}"
-					sortOldestFirst="true">
+					title="{path: 'portal>Description'}" icon="{i18n>task.task.icon}">
 					<suite:embeddedControl>
 						<HBox class="sapUiSmallMargin">
 							<RatingIndicator class="sapUiTinyMarginTop"
