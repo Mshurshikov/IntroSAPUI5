@@ -1,0 +1,16 @@
+<Dialog xmlns="sap.m" xmlns:form="sap.ui.layout.form" title="{i18n>task.new}">
+	<form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+		<Label text="{i18n>task.dueDate}" required="true" />
+		<DatePicker value="{task>/DueDate}" valueFormat="yyyy-MM-ddTHH:mm:ss" />
+		
+		<Label text="{i18n>task.task}" required="true" />
+		<Input type="Text" value="{task>/Description}" />
+		
+		<Label text="{i18n>task.priority}" />
+		<RatingIndicator maxValue="5" value="{task>/Priority}" />
+	</form:SimpleForm>
+	<buttons>
+		<Button text="{i18n>cancel}" press="onNewCanceled" />
+		<Button text="{i18n>save}" press="onNewSaved" />
+	</buttons>
+</Dialog>
