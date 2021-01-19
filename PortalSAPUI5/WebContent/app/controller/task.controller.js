@@ -22,7 +22,8 @@ sap.ui.define([
 					{Done: true},
 					{
 						success: function() {
-							MessageToast.show(this.getText("message.update.success"));
+							MessageToast.show(this.getText("message.update.success"))
+							this.getModel("portal").refresh();
 						}.bind(this),
 						
 						error: function() {
@@ -60,12 +61,13 @@ sap.ui.define([
 			
 			oModel.create("/TaskSet", oData, {
 				success: function() {
-					MessageToast.show(this.getText("message.create.success"));
+					MessageToast.show(this.getText("message.create.success"))
+					this.getModel("portal").refresh();
 				}.bind(this),
 				error: function() {
 					MessageBox.error(this.getText("message.create.error"), {
 						title: this.getText("message.error")
-					});
+					})
 				}.bind(this)
 			});
 			this._oNewDialog.close();

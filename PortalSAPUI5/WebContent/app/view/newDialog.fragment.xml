@@ -10,7 +10,7 @@
 		<RatingIndicator maxValue="5" value="{task>/Priority}" />
 	</form:SimpleForm>
 	<buttons>
-		<Button text="{i18n>cancel}" press="onNewCanceled" />
+		<Button text="{i18n>cancel}" press="onNewCancelled" />
 		<Button text="{i18n>save}" press="onNewSaved" />
 	</buttons>
 </Dialog>
