@@ -1,0 +1,38 @@
+<Dialog xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form" title="{i18n>timesheet.new}">
+	<form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+		<Label text="{i18n>timesheet.date}" required="true" />
+		<DatePicker value="{path: 'time>/ActivityDate', type: 'sap.ui.model.type.DateTime' }" valueFormat="yyyy-MM-ddTHH:mm:ss" />
+		
+		<Label text="{i18n>timesheet.begin}" required="true" />
+		<DateTimeInput type="sap.ui.model.type.Time" value="{time>/TimeFrom}" valueFormat=" 'PT' HH 'H' mm 'M' ss 'S'" />
+		
+		<Label text="{i18n>timesheet.end}" required="true" />
+		<DateTimeInput type="sap.ui.model.type.Time" value="{time>/TimeTo}" valueFormat=" 'PT' HH 'H' mm 'M' ss 'S'" />
+		
+		<Label text="{i18n>timesheet.type}" required="true" />
+		<RadioButtonGroup id="time-internal" columns="2" selectedIndex="1" select="onTimeTypeChanged">
+			<buttons>
+				<RadioButton text="{i18n>timesheet.internal}" />
+				<RadioButton text="{i18n>timesheet.customer}" />
+			</buttons>
+		</RadioButtonGroup>
+		
+		<Label text="{i18n>timesheet.customer}" />
+		<Select id="time-customer" items="{portal>/CustomerSet}" selectedKey="{time>/CustomerID}" change="onProjectChanged">
+			<core:Item key="{portal>CustomerID}" text="{portal>Description}" />
+		</Select>
+		
+		<Label text="{i18n>timesheet.project}" />
+		<Select id="time-project" items="{path: 'portal>/ProjectSet', parameters: {operationMode: 'Client'} }" selectedKey="{time>/ProjectID}">
+			<core:Item key="{portal>ProjectID}" text="{portal>Description}" />
+		</Select>
+		
+		<Label text="{i18n>timesheet.description}" />
+		<Input type="Text" value="{time>/Description}" />
+	</form:SimpleForm>
+	<buttons>
+		<Button text="{i18n>cancel}" press="onNewCancelled" />
+		<Button text="{i18n>save}" press="onNewSaved" />
+	</buttons>
+</Dialog>
