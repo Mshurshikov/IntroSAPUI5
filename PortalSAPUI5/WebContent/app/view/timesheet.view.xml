@@ -7,7 +7,7 @@
 		<Table id="Table" items="{
 			path: 'portal>/TimesheetSet',
 			sorter: {
-				path: 'portal>ActivityDate',
+				path: 'ActivityDate',
 				descending: false
 			},
 			parameters: { operationMode: 'Client' }
