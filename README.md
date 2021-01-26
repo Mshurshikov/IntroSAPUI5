@@ -48,3 +48,14 @@ Following topics are covered:
 - Modelling OData
 - Consuming OData
 - Implementation of mock server
+
+## SAPUI5 Portal
+
+An example of a basic employee portal is implemented in the project PortalSAPUI5.
+
+Employee portal has following features:
+- Home-View with navigation tiles
+- Task-View with NewTask fragment and Timeline control
+- Time-View with NewTime fragment and Stacked Column chart
+- Leave-View with NewLeave fragment and Calendar control
+- Route-View with implemented Google Maps API for route calculation
