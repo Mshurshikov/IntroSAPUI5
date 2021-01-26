@@ -2,8 +2,12 @@ sap.ui.define([
 	"my/app/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
 	"sap/viz/ui5/data/FlattenedDataset",
-	"sap/ui/core/format/DateFormat"
-], function(Controller, JSONModel, FlattenedDataset, DateFormat) {
+	"sap/ui/core/format/DateFormat",
+	"sap/m/MessageToast",
+	"sap/m/MessageBox",
+	"sap/ui/model/type/Date",
+	"sap/ui/model/Filter"
+], function(Controller, JSONModel, FlattenedDataset, DateFormat, MessageToast, MessageBox, TypeDate, Filter) {
 	"use strict";
 	return Controller.extend("my.app.controller.timesheet", {
 		onInit: function() {
@@ -22,7 +26,20 @@ sap.ui.define([
 		},
 
 		onNewPressed: function() {
-
+			if(!this._oNewDialog) {
+				this._createNewDialog();
+				
+				this._oNewDialog.attachBeforeOpen(function() {
+					this._oNewModel.setData({"Internal": false});
+				}, this);
+				
+				this._oNewDialog.attachAfterClose(function() {
+					sap.ui.getCore().byId("time-internal").setSelectedIndex(1);
+				}, this);
+			}
+			
+			this.getView().addDependent(this._oNewDialog);
+			this._oNewDialog.open();
 		},
 
 		onNewCancelled: function() {
@@ -30,15 +47,42 @@ sap.ui.define([
 		},
 
 		onNewSaved: function(oEvent) {
-
+			var oModel = this.getModel("portal"),
+			oData = this._oNewModel.getData();
+			
+			if(oData.Internal) {
+				delete oData.CustomerID;
+				delete oData.ProjectID;
+			}
+			
+			oModel.create("/TimesheetSet", oData, {
+				success: function() {
+					MessageToast.show(this.getText("message.create.success"))
+				}.bind(this),
+				error: function() {
+					MessageBox.error(this.getText("message.create.error"), {
+						title: this.getText("message.error")
+					})
+				}.bind(this)
+			});
+			this._oNewDialog.close();
 		},
 
 		onTimeTypeChanged: function(oEvent) {
-
+			this._oNewModel.setProperty("/Internal", !oEvent.getParameter("selectedIndex"));
+			sap.ui.getCore().byId("time-customer").setEnabled(!!oEvent.getParameter("selectedIndex"));
+			sap.ui.getCore().byId("time-project").setEnabled(!!oEvent.getParameter("selectedIndex"));
 		},
 
 		onProjectChanged: function(oEvent) {
-
+			var sSelectedCustomerId = oEvent.getParameter ? oEvent.getParameter("selectedItem").getKey() : oEvent;
+			var oBinding = sap.ui.getCore().byId("time-project").getBinding("items");
+			
+			oBinding.filter(new Filter({
+				path: "CustomerID",
+				operator: "EQ",
+				value1: sSelectedCustomerId
+			}));
 		},
 
 		onRequestCompleted: function(oEvent) {
@@ -95,6 +139,12 @@ sap.ui.define([
 				}
 			});
 			oChart.setDataset(oDataset);
+		},
+		
+		_createNewDialog: function() {
+			this._oNewDialog = sap.ui.xmlfragment("my.app.view.newTime", this);
+			this._oNewModel = new JSONModel();
+			this._oNewDialog.setModel(this._oNewModel, "time");
 		}
 	});
 });

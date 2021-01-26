@@ -5,10 +5,10 @@
 		<DatePicker value="{path: 'time>/ActivityDate', type: 'sap.ui.model.type.DateTime' }" valueFormat="yyyy-MM-ddTHH:mm:ss" />
 		
 		<Label text="{i18n>timesheet.begin}" required="true" />
-		<DateTimeInput type="sap.ui.model.type.Time" value="{time>/TimeFrom}" valueFormat=" 'PT' HH 'H' mm 'M' ss 'S'" />
+		<DateTimeInput type="Time" value="{time>/TimeFrom}" valueFormat=" 'PT'HH'H'mm'M'sss'S'" />
 		
 		<Label text="{i18n>timesheet.end}" required="true" />
-		<DateTimeInput type="sap.ui.model.type.Time" value="{time>/TimeTo}" valueFormat=" 'PT' HH 'H' mm 'M' ss 'S'" />
+		<DateTimeInput type="Time" value="{time>/TimeTo}" valueFormat="'PT'HH'H'mm'M'ss'S'" />
 		
 		<Label text="{i18n>timesheet.type}" required="true" />
 		<RadioButtonGroup id="time-internal" columns="2" selectedIndex="1" select="onTimeTypeChanged">
