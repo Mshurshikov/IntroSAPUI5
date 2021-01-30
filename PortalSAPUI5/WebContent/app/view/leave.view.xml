@@ -1,5 +1,66 @@
-<core:View xmlns:core="sap.ui.core" xmlns="sap.m" controllerName="my.app.controller.leave">
-	<Page title="{i18n>leave.title}" showNavButton="true" navButtonPress="onBackPressed">
-		
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:unified="sap.ui.unified" 
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="my.app.controller.leave">
+	<Page title="{i18n>leave.title}" showNavButton="true"
+		navButtonPress="onBackPressed">
+		<unified:Calendar id="Calendar" months="3"
+			class="leaveCalendar" intervalSelection="true" />
+		<unified:CalendarLegend id="CalendarLegend" />
+
+		<Table id="Table"
+			items="{
+			path: 'portal>/AbsenceSet',
+			sorter: [{
+				path: 'Status',
+				descending: true,
+				group: '.formatStatusGroupHeader'
+			}, {
+				path: 'StartDate',
+				descending: true
+			}],
+			parameters: {operationMode: 'Client' }
+		}">
+			<columns>
+				<Column>
+					<Text text="{i18n>leave.begin}" />
+				</Column>
+				<Column>
+					<Text text="{i18n>leave.end}" />
+				</Column>
+				<Column>
+					<Text text="{i18n>leave.type}" />
+				</Column>
+				<Column>
+					<Text text="{i18n>leave.description}" />
+				</Column>
+				<Column>
+					<Text text="{i18n>leave.status}" />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text
+							text="{path: 'portal>StartDate', type: 'sap.ui.model.type.Date'}" />
+						<Text
+							text="{path: 'portal>EndDate', type: 'sap.ui.model.type.Date'}" />
+						<Text
+							text="{parts: ['portal>Type', 'types>/' ], formatter: '.formatType' }" />
+						<Text text="{portal>Description}" />
+						<Text
+							text="{parts: ['portal>Status', 'statusTypes>/'], formatter: '.formatType' }" />
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button text="{i18n>leave.new}" icon="{i18n>leave.new.icon}"
+					press="onNewPressed" />
+			</Toolbar>
+		</footer>
 	</Page>
 </core:View>
