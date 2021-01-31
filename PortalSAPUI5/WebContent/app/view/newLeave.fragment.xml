@@ -1,0 +1,24 @@
+<Dialog xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form" title="{i18n>leave.new}">
+	
+	<form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+		<Label text="{i18n>leave.begin}" required="true" />
+		<DatePicker dateValue="{leave>/StartDate}" valueFormat="yyyy-MM-ddTHH:mm:ss" />
+		
+		<Label text="{i18n>leave.end}" required="true" />
+		<DatePicker dateValue="{leave>/EndDate}" valueFormat="yyyy-MM-ddTHH:mm:SS" />
+		
+		<Label text="{i18n>leave.type}" required="true" />
+		<Select id="leave-type" selectedKey="{leave>/Type}" items="{portal>/AbsenceTypesSet}">
+			<core:Item key="{portal>AbsKey}" text="{portal>AbsText}"/>
+		</Select>
+		
+		<Label text="{i18n>leave.description}"/>
+		<Input type="Text" value="{leave>/Description}" />
+	</form:SimpleForm>
+	
+	<buttons>
+		<Button text="{i18n>cancel}" press="onNewCancelled" />
+		<Button text="{i18n>save}" press="onNewSaved" />
+	</buttons>
+</Dialog>

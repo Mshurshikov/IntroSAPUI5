@@ -1,8 +1,9 @@
 sap.ui.define([
 	"my/app/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/unified/DateTypeRange"
-], function(Controller, JSONModel, DateTypeRange) {
+	"sap/ui/unified/DateTypeRange",
+	"sap/ui/core/syncStyleClass"
+], function(Controller, JSONModel, DateTypeRange, syncStyleClass) {
 	"use strict";
 	return Controller.extend("my.app.controller.leave", {
 		onInit: function() {
@@ -31,6 +32,11 @@ sap.ui.define([
 			});
 		},
 
+		onExit: function() {
+			this.getModel("portal").detachRequestCompleted(this.onRequestCompleted, this);	
+		},
+
+		//Connectivity
 		onRequestCompleted: function(oEvent) {
 			if (oEvent.getParameter("url").indexOf("AbsenceSet") === -1 ||
 				oEvent.getParameter("url").indexOf("$count") !== -1 ||
@@ -68,11 +74,37 @@ sap.ui.define([
 		},
 
 		onNewPressed: function() {
-
+			if(!this._oNewLeaveDialog) {
+				this._createNewDialog();
+				
+				this._oNewLeaveDialog.attachBeforeOpen(function() {
+					var aSelectedDates = this.getView().byId("Calendar").getSelectedDates(),
+						oStartDate = aSelectedDates.length > 0 ? aSelectedDates[0].getStartDate() : "",
+						oEndDate = aSelectedDates.length > 0 && aSelectedDates[0].getEndDate() ? aSelectedDates[0].getEndDate() : oStartDate,
+						oData = {
+							"StartDate": oStartDate,
+							"EndDate": oEndDate,
+							"Type": "Holiday"
+						};
+					if(!oData.StartDate) {
+						delete oData.StartDate;
+						delete oData.EndDate;
+					}
+					
+					this._oNewLeaveModel.setData(oData);
+				}, this);
+				
+				this._oNewLeaveDialog.attachAfterClose(function() {
+					sap.ui.getCore().byId("leave-type").setSelectedKey("Holiday");
+				}, this);
+			}
+			syncStyleClass("sapUiSizeCompact", this.getView(), this._oNewLeaveDialog);
+			this.getView().addDependent(this._oNewLeaveDialog);
+			this._oNewLeaveDialog.open();
 		},
 
 		onNewCancelled: function() {
-
+			this._oNewLeaveDialog.close();
 		},
 
 		onNewSaved: function(oEvent) {
@@ -86,8 +118,13 @@ sap.ui.define([
 
 		formatType: function(iStatus, oTypes) {
 
-		}
+		},
 
 		// Private Section
+		_createNewDialog: function() {
+			this._oNewLeaveDialog = sap.ui.xmlfragment("my.app.view.newLeave", this );
+			this._oNewLeaveModel = new JSONModel();
+			this._oNewLeaveDialog.setModel(this._oNewLeaveModel, "leave");
+		}
 	});
 });
