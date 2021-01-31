@@ -2,8 +2,10 @@ sap.ui.define([
 	"my/app/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/unified/DateTypeRange",
-	"sap/ui/core/syncStyleClass"
-], function(Controller, JSONModel, DateTypeRange, syncStyleClass) {
+	"sap/ui/core/syncStyleClass",
+	"sap/m/MessageToast",
+	"sap/m/MessageBox"
+], function(Controller, JSONModel, DateTypeRange, syncStyleClass, MessageToast, MessageBox) {
 	"use strict";
 	return Controller.extend("my.app.controller.leave", {
 		onInit: function() {
@@ -108,7 +110,20 @@ sap.ui.define([
 		},
 
 		onNewSaved: function(oEvent) {
-
+			var oModel = this.getModel("portal");
+			var oData = this._oNewLeaveModel.getData();
+			
+			oModel.create("/AbsenceSet", oData, {
+				success: function() {
+					MessageToast.show(this.getText("message.create.success"));
+				}.bind(this),
+				error: function() {
+					MessageBox.error(this.getText("message.create.error"), {
+						title: this.getText("message.error")
+					});
+				}.bind(this)
+			});
+			this._oNewLeaveDialog.close();
 		},
 
 		//Formatter Section
