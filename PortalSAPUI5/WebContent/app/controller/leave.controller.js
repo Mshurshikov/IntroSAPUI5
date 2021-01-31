@@ -128,11 +128,16 @@ sap.ui.define([
 
 		//Formatter Section
 		formatStatusGroupHeader: function(oContext) {
-
+			if(!this.getView().getModel("statusTypes")) {
+				return "";
+			}
+			
+			var oStatusTypes = this.getView().getModel("statusTypes").getData();
+			return oContext.getObject() ? oStatusTypes[oContext.getObject().Status] : "";
 		},
 
 		formatType: function(iStatus, oTypes) {
-
+			return oTypes ? oTypes[iStatus] : "";
 		},
 
 		// Private Section
